@@ -1,1 +1,1 @@
-# burnit
+# BurnIt
