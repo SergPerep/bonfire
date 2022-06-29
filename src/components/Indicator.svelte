@@ -8,7 +8,7 @@
     </span>
 </div>
 
-<style>
+<style lang="scss">
     .indicator{
         padding: 12px;
     }
@@ -16,5 +16,6 @@
         display: block;
         width: 24px;
         height: 24px;
+        color: colors.$success;
     }
 </style>

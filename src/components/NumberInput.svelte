@@ -1,22 +1,23 @@
 <script lang="ts">
-    import Indicator from "./Indicator.svelte";
+	import Indicator from './Indicator.svelte';
 	let placeholder: string;
 	let value: number;
-    let label = "Label";
+	let label = 'Label';
 </script>
 
 <div class="text-field">
-    <label for="number-input">{label}</label>
+	<label for="number-input">{label}</label>
 	<div class="field">
-		<input type="number" {placeholder} bind:value id="#number-input"/>
+		<input type="number" {placeholder} bind:value id="#number-input" />
 		<Indicator />
 	</div>
 </div>
 
-<style>
-    label{
+<style lang="scss">
+	label{
         padding-bottom: 12px;
         display: block;
+		@include fonts.body;
     }
 	.field {
 		background-color: rgba(0, 0, 0, 0.08);
