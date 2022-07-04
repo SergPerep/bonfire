@@ -1,7 +1,3 @@
-<script>
-
-</script>
-
 <div class="indicator">
     <span class="material-symbols-outlined">
         check_circle
