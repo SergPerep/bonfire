@@ -2,7 +2,7 @@
 	import Indicator from './Indicator.svelte';
 	let placeholder: string;
 	let value: number;
-	let label = 'Label';
+	export let label = 'Label';
 </script>
 
 <div class="text-field">
@@ -23,6 +23,7 @@
 		background-color: rgba(0, 0, 0, 0.08);
 		border-radius: 8px;
         display: flex;
+		margin-bottom: 16px;
 	}
 	input {
 		width: 100%;

@@ -9,7 +9,7 @@
 
 <style>
     .header{
-        padding: 36px 32px 24px;
+        padding: 8px 0 24px;
         background-color: white;
         border-radius: 16px 16px 0 0;
     }

@@ -1,11 +1,12 @@
-<div class="card">
+<section class="card">
     <slot></slot>
-</div>
+</section>
 
 <style>
     .card{
         margin-bottom: 36px;
         background-color: white;
-        padding: 24px;
+        padding: 24px 24px 8px;
+        border-radius: 12px;
     }
 </style>
