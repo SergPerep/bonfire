@@ -13,3 +13,8 @@ body{
   'GRAD' 0,
   'opsz' 24
 };
+
+.container {
+  width: 610px;
+  margin: 0 auto;
+}

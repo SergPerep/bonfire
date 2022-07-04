@@ -75,10 +75,6 @@
 </main>
 
 <style lang="scss">
-	.container {
-		width: 610px;
-		margin: 0 auto;
-	}
 	h2 {
 		font-size: 18px;
 		line-height: 24px;
