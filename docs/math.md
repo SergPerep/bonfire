@@ -2,13 +2,18 @@
 
 Explanation of the math behind gas-burner app.
 
+## What do you need
+To calculate energy expenses you need to have annual energy consumption and Rates agreement `Tarieven overeenkomst`, the document that you get after you have made contract with energy supplier.
+
+Consumption is basically how much energy (electricity and gas) you spend in a year. 
+
 ## ⚡️ Electricity
 
 There 4 types of expenses that you should keep an eye on regarding electricity.
 
 ### 1. El. variable costs `variabele kosten`
 
-Money that you pay to energy supplier for electricity that you have used. They are variable since they depend on your consumption.
+Money that you pay to energy supplier for electricity that you have used. They are called "variable" since they depend on your consumption.
 
 <details><summary><b>Is your meter box smart?</b></summary>    
 
@@ -57,6 +62,9 @@ const elVasteLevKostenPerJaar = elVasteLevKosten * 12;
 
 ### 3. El. reduction energy tax `vermindering energiebelasting`
 
+The government sets energy tax, that makes energy more expensive, to force people to save energy. But for electricity it also provides tax reduction.
+
+The size of tax reduction depends on a year when your contract starts. For 2022 it is € 824,77.
 ```javascript
 const elVerminEnergBelasting = -2.259650; // €/day
 const elVerminEnergBelastingPerJaar = elVerminEnergBelasting * 365;
@@ -140,7 +148,7 @@ const gasKostenPerMaand = gasKostenPerJaar / 12;
 // Monthly average expenses for gas are 430€
 ```
 
-## Total energy costs
+## 🏁 Total energy costs
 ```javascript
 const totaleKostenPerJaar = elKostenPerJaar + gasKostenPerJaar;
 
