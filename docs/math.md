@@ -3,7 +3,11 @@
 Explanation of the math behind gas-burner app.
 
 ## What do you need
-To calculate energy expenses you need to have annual energy consumption and Rates agreement `Tarieven overeenkomst`, the document that you get after you made a contract with energy supplier.
+To calculate energy expenses you need to have: 
+- **Annual energy consumption**. For gas and electricity for a year.
+- **Rates agreement `Tarieven overeenkomst`**. The document that you get after you made a contract with an energy supplier.
+
+### Annual energy consumption
 
 Consumption is basically how much energy (electricity and gas) you spend in a year. You have to figure out numbers yourself or visit [Gemiddeld energieverbruik](https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/#:~:text=Een%20Nederlands%20huishouden%20verbruikt%20jaarlijks,zijn%20in%202022%20grote%20verschillen.) to find average numbers for a household similar to yours.
 
@@ -14,7 +18,9 @@ For this example I'm going to use my own data for 2021 year.
 | Electricity consumption: Normaal | 507  kWh                      |
 | Electricity consumption: Dal     | 402 kWh                       |
 | Gas consumption                  | 1200 m³                       |
+### Rates agreement `Tarieven overeenkomst`
 
+You receive this document after you signed a contract with energy supplier. In this document you find rates...  
 ## ⚡️ Electricity
 
 There 4 types of expenses that you should keep an eye on regarding electricity.
