@@ -2,11 +2,11 @@
 
 Explanation of the math behind gas-burner app.
 
-## Electricity
+## ⚡️ Electricity
 
-There 4 types of expenses that you should keep an eye on regarding electricity: 
+There 4 types of expenses that you should keep an eye on regarding electricity.
 
-### Variable costs `variabele kosten`
+### 1. El. variable costs `variabele kosten`
 
 Money that you pay to energy supplier for electricity that you have used. They are variable since they depend on your consumption.
 
@@ -44,7 +44,7 @@ const elTotVarKostenPerJaar =
 // Total electricity variable costs for this year are 428€ 
 ```
 
-### Fixed costs `vaste kosten`
+### 2. El. fixed costs `vaste kosten`
 
 Fixed amount of money that you pay to energy supplier. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
 
@@ -55,23 +55,100 @@ const elVasteLevKostenPerJaar = elVasteLevKosten * 12;
 // Total electricity fixed costs for this year are 78€
 ```
 
-### Reduction energy tax `vermindering energiebelasting`
+### 3. El. reduction energy tax `vermindering energiebelasting`
 
 ```javascript
-const elVerminEnergBelasting = -2.259650; // €/dag
+const elVerminEnergBelasting = -2.259650; // €/day
 const elVerminEnergBelastingPerJaar = elVerminEnergBelasting * 365;
 // RESULT
 // Reduction energy tax for this year is -825€
 ```
 
-### Delivery costs `netbeheerkosten`
+### 4. El. delivery costs `netbeheerkosten`
 
 Money that you pay to grid operator for energy connection and the transport of energy.
 
 ```javascript
-const elNetbeheerKosten = 0.696597; // €/dag
+const elNetbeheerKosten = 0.696597; // €/day
 const elNetbeheerKostenPerJaar = elNetbeheerKosten * 365;
 // RESULT
 // Reduction energy tax for this year is 254€
 ```
+### Total el. costs
 
+```javascript
+// Add up all costs to get total for a year
+const elKostenPerJaar =
+        elTotVarKostenPerJaar +
+        elVasteLevKostenPerJaar +
+        elVerminEnergBelastingPerJaar +
+        elNetbeheerKostenPerJaar;
+
+// RESULT
+// Expenses for electricity this year are -65€
+
+// Divide by 12 to get monthly average
+const elKostenPerMaand = elKostenPerJaar / 12;
+
+// RESULT
+// Monthly average expenses for electricity are -5.42€
+```
+> Depending on your electricity consumption your total electricity expenses can come out negative thanks to reduction energy tax.
+## 🔥 Gas
+
+### 1. Gas variable costs `variabele kosten`
+```javascript
+const gasConsumptie = 1200; // m³
+const gasTotVarKosten = 1.927312; // €/m³
+
+const gasTotVarKostenPerJaar = 
+    gasTotVarKosten * gasConsumptie;
+
+// RESULT
+// Total gas variable costs for this year are 2313€
+```
+### 2. Gas fixed costs `vaste kosten`
+```javascript
+const gasVasteLevKosten = 6.489956; // €/month
+const gasVasteLevKostenPerJaar = gasVasteLevKosten * 12;
+
+// RESULT
+// Total gas fixed costs for this year are 78€
+```
+### 3. Gas delivery costs `netbeheerkosten`
+```javascript
+const gasNetbeheerKosten = 0.512435; // €/day
+const gasNetbeheerKostenPerJaar = gasNetbeheerKosten * 365;
+
+// RESULT
+// Total gas delivery costs for this year are 187€
+```
+### Total gas costs
+```javascript
+// Add up all costs to get total for a year
+const gasKostenPerJaar = 
+    gasTotVarKostenPerJaar + 
+    gasVasteLevKostenPerJaar + 
+    gasNetbeheerKostenPerJaar;
+
+// RESULT
+// Total gas costs for this year are 5155€
+
+const gasKostenPerMaand = gasKostenPerJaar / 12;
+
+// RESULT
+// Monthly average expenses for gas are 430€
+```
+
+## Total energy costs
+```javascript
+const totaleKostenPerJaar = elKostenPerJaar + gasKostenPerJaar;
+
+// RESULT
+// Total energy costs for this year are 5090€
+
+const totaleKostenPerMaand = totaleKostenPerJaar / 12;
+
+// RESULT
+// Monthly average expenses for energy are 424€
+```
