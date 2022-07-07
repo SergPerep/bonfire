@@ -5,11 +5,11 @@ Explanation of the math behind gas-burner app.
 ## What do you need
 To calculate energy expenses you need to have: 
 - **Annual energy consumption**. For gas and electricity for a year.
-- **Rates agreement `Tarieven overeenkomst`**. The document that you get after you made a contract with an energy supplier.
+- **Rates agreement `Tarieven overeenkomst`**. The document where you can find information about rates and other energy costs that you signed up for. Energy provider should have sent it to you after you have signed up a contract. It may look like this [Coolblue Rates Agreement Example](./coolblue_minder_energie_2021.png). 
 
 ### Annual energy consumption
 
-Consumption is basically how much energy (electricity and gas) you spend in a year. You have to figure out numbers yourself or visit [Gemiddeld energieverbruik](https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/#:~:text=Een%20Nederlands%20huishouden%20verbruikt%20jaarlijks,zijn%20in%202022%20grote%20verschillen.) to find average numbers for a household similar to yours.
+Annual energy consumption is basically how much energy (electricity and gas) you spend in a year. You have to figure out numbers yourself. If don't have this data, you can visit [Gemiddeld energieverbruik](https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/#:~:text=Een%20Nederlands%20huishouden%20verbruikt%20jaarlijks,zijn%20in%202022%20grote%20verschillen.) to find average numbers for a household similar to yours.
 
 For this example I'm going to use my own data for 2021 year.
 
@@ -20,15 +20,19 @@ For this example I'm going to use my own data for 2021 year.
 | Gas consumption                  | 1200 m³                       |
 ### Rates agreement `Tarieven overeenkomst`
 
-You receive this document after you signed a contract with energy supplier. In this document you find rates...
+You receive this document after you sign a contract with energy supplier. You can find it in your emails or in your personal account on website of your energy provider. It might look like this:
 
 ![Coolblue_Minder_Energie_2021](coolblue_minder_energie_2021.png)
+
+To calculate **electricity expenses** we going to use values highlighted with **green**. To calculate **gas expenses** we going to use values highlighted with **orange**.
+
+Now we can start calculating.
 
 ## ⚡️ Electricity
 
 There 4 types of expenses that you should keep an eye on regarding electricity.
 
-### 1. El. variable costs `variabele kosten`
+### 1. Electricity variable costs `Totale variabele kosten`
 
 Money that you pay to energy supplier for electricity that you have used. They are called "variable" since they depend on your consumption.
 
@@ -66,7 +70,7 @@ const elTotVarKostenPerJaar =
 // Total electricity variable costs for this year are 428€ 
 ```
 
-### 2. El. fixed costs `vaste leveringskosten`
+### 2. Electricity fixed costs `Vaste leveringskosten`
 
 Fixed amount of money that you pay to energy supplier. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
 
@@ -77,7 +81,7 @@ const elVasteLevKostenPerJaar = elVasteLevKosten * 12;
 // Total electricity fixed costs for this year are 78€
 ```
 
-### 3. El. reduction energy tax `vermindering energiebelasting`
+### 3. Electricity reduction energy tax `Vermindering energiebelasting`
 
 The government sets energy tax, that makes energy more expensive, to force people to save energy. But for electricity it also provides tax reduction.
 
@@ -89,7 +93,7 @@ const elVerminEnergBelastingPerJaar = elVerminEnergBelasting * 365;
 // Reduction energy tax for this year is -825€
 ```
 
-### 4. El. delivery costs `netbeheerkosten`
+### 4. Electricity delivery costs `Netbeheerkosten`
 
 Money that you pay to grid operator for connection and transport of electricity.
 
@@ -99,7 +103,7 @@ const elNetbeheerKostenPerJaar = elNetbeheerKosten * 365;
 // RESULT
 // Reduction energy tax for this year is 254€
 ```
-### Total el. costs
+### Total electricity costs
 
 Add up all costs to get total for a year for electricity.
 
@@ -122,7 +126,7 @@ const elKostenPerMaand = elKostenPerJaar / 12;
 > Depending on your electricity consumption your total electricity expenses can come out negative thanks to reduction energy tax.
 ## 🔥 Gas
 
-### 1. Gas variable costs `variabele kosten`
+### 1. Gas variable costs `Totale variabele kosten`
 
 Money that you pay to energy supplier for gas that you actually have used. They are called "variable" since they depend on your consumption.
 
@@ -136,7 +140,7 @@ const gasTotVarKostenPerJaar =
 // RESULT
 // Total gas variable costs for this year are 2313€
 ```
-### 2. Gas fixed costs `vaste kosten`
+### 2. Gas fixed costs `Vaste kosten`
 
 Fixed amount of money that you pay to energy supplier for gas. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
 
@@ -147,7 +151,7 @@ const gasVasteLevKostenPerJaar = gasVasteLevKosten * 12;
 // RESULT
 // Total gas fixed costs for this year are 78€
 ```
-### 3. Gas delivery costs `netbeheerkosten`
+### 3. Gas delivery costs `Netbeheerkosten`
 
 Money that you pay to grid operator for connection and transport of gas.
 
