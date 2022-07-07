@@ -22,7 +22,7 @@ For this example I'm going to use my own data for 2021 year.
 
 You receive this document after you signed a contract with energy supplier. In this document you find rates...
 
-![Coolblue_Minder_Energie_2021](coolblue_minder_energie_2021.jpg)
+![Coolblue_Minder_Energie_2021](coolblue_minder_energie_2021.png)
 
 ## ⚡️ Electricity
 
