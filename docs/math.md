@@ -20,7 +20,10 @@ For this example I'm going to use my own data for 2021 year.
 | Gas consumption                  | 1200 m³                       |
 ### Rates agreement `Tarieven overeenkomst`
 
-You receive this document after you signed a contract with energy supplier. In this document you find rates...  
+You receive this document after you signed a contract with energy supplier. In this document you find rates...
+
+![Coolblue_Minder_Energie_2021](coolblue_minder_energie_2021.jpg)
+
 ## ⚡️ Electricity
 
 There 4 types of expenses that you should keep an eye on regarding electricity.
@@ -63,7 +66,7 @@ const elTotVarKostenPerJaar =
 // Total electricity variable costs for this year are 428€ 
 ```
 
-### 2. El. fixed costs `vaste kosten`
+### 2. El. fixed costs `vaste leveringskosten`
 
 Fixed amount of money that you pay to energy supplier. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
 
@@ -88,7 +91,7 @@ const elVerminEnergBelastingPerJaar = elVerminEnergBelasting * 365;
 
 ### 4. El. delivery costs `netbeheerkosten`
 
-Money that you pay to grid operator for energy connection and the transport of energy.
+Money that you pay to grid operator for connection and transport of electricity.
 
 ```javascript
 const elNetbeheerKosten = 0.696597; // €/day
@@ -98,8 +101,9 @@ const elNetbeheerKostenPerJaar = elNetbeheerKosten * 365;
 ```
 ### Total el. costs
 
+Add up all costs to get total for a year for electricity.
+
 ```javascript
-// Add up all costs to get total for a year
 const elKostenPerJaar =
         elTotVarKostenPerJaar +
         elVasteLevKostenPerJaar +
@@ -119,6 +123,9 @@ const elKostenPerMaand = elKostenPerJaar / 12;
 ## 🔥 Gas
 
 ### 1. Gas variable costs `variabele kosten`
+
+Money that you pay to energy supplier for gas that you actually have used. They are called "variable" since they depend on your consumption.
+
 ```javascript
 const gasConsumptie = 1200; // m³
 const gasTotVarKosten = 1.927312; // €/m³
@@ -130,6 +137,9 @@ const gasTotVarKostenPerJaar =
 // Total gas variable costs for this year are 2313€
 ```
 ### 2. Gas fixed costs `vaste kosten`
+
+Fixed amount of money that you pay to energy supplier for gas. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
+
 ```javascript
 const gasVasteLevKosten = 6.489956; // €/month
 const gasVasteLevKostenPerJaar = gasVasteLevKosten * 12;
@@ -138,6 +148,9 @@ const gasVasteLevKostenPerJaar = gasVasteLevKosten * 12;
 // Total gas fixed costs for this year are 78€
 ```
 ### 3. Gas delivery costs `netbeheerkosten`
+
+Money that you pay to grid operator for connection and transport of gas.
+
 ```javascript
 const gasNetbeheerKosten = 0.512435; // €/day
 const gasNetbeheerKostenPerJaar = gasNetbeheerKosten * 365;
@@ -146,8 +159,10 @@ const gasNetbeheerKostenPerJaar = gasNetbeheerKosten * 365;
 // Total gas delivery costs for this year are 187€
 ```
 ### Total gas costs
+
+Add up all costs to get total for a year for gas.
+
 ```javascript
-// Add up all costs to get total for a year
 const gasKostenPerJaar = 
     gasTotVarKostenPerJaar + 
     gasVasteLevKostenPerJaar + 
@@ -163,6 +178,9 @@ const gasKostenPerMaand = gasKostenPerJaar / 12;
 ```
 
 ## 🏁 Total energy costs
+
+Finally add up total electricity costs and total gas costs and you will get total energy cost.
+
 ```javascript
 const totaleKostenPerJaar = elKostenPerJaar + gasKostenPerJaar;
 
