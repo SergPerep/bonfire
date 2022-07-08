@@ -142,7 +142,7 @@ const gasTotVarKostenPerJaar =
 ```
 ### 2. Gas fixed costs `Vaste kosten`
 
-Fixed amount of money that you pay to energy supplier for gas. They are the same every month and non-dependent on your consumption. Think about them as subscription fee.
+Fixed amount of money that you pay to energy supplier for gas. They are the same every month and non-dependent on your consumption. Think about them as a subscription fee.
 
 ```javascript
 const gasVasteLevKosten = 6.489956; // €/month
@@ -183,7 +183,7 @@ const gasKostenPerMaand = gasKostenPerJaar / 12;
 
 ## 🏁 Total energy costs
 
-Finally add up total electricity costs and total gas costs and you will get total energy cost.
+Finally add up total electricity costs and total gas costs and you will get total energy costs.
 
 ```javascript
 const totaleKostenPerJaar = elKostenPerJaar + gasKostenPerJaar;
