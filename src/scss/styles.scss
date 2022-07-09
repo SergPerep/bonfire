@@ -1,0 +1,21 @@
+@use "./sass-utils/colors";
+@use "./sass-utils/fonts";
+h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+section {
+    padding: 24px 0 0;
+    margin-bottom: 24px;
+    border-top: 1px solid colors.$black-a12;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-2 {
+    width: calc((100% - 24px) / 2);
+}
