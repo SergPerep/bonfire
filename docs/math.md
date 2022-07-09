@@ -140,7 +140,7 @@ const gasTotVarKostenPerJaar =
 // RESULT
 // Total gas variable costs for this year are 2313€
 ```
-### 2. Gas fixed costs `Vaste kosten`
+### 2. Gas fixed costs `Vaste leveringskosten`
 
 Fixed amount of money that you pay to energy supplier for gas. They are the same every month and non-dependent on your consumption. Think about them as a subscription fee.
 
