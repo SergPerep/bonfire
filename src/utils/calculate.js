@@ -1,4 +1,6 @@
 const calculate = ({
+    
+    /* ===== Elektriciteit ===== */
     isMeterkastSlim = false,
     elConsumptieEnkel /* 911 kWh/jaar */,
     elConsumptieNormaal /* 507  kWh/jaar */,
@@ -10,6 +12,8 @@ const calculate = ({
     elVasteLevKosten /* 6.489956 €/maand */,
     elVerminEnergBelasting /* -2.259650 €/dag */,
     elNetbeheerKosten /* 0.696597  €/dag */,
+    
+    /* ===== Gas ===== */
     gasConsumptie /* 1200 m³/jaar */,
     gasTotVarKosten /* 1.927312 €/m³ */,
     gasVasteLevKosten /* 6.489956 €/maand */,
