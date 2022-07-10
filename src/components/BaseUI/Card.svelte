@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	export let title = 'Card title';
-	export let totalExpensesPerYear = 0;
-	let totalExpensesPerMonth = totalExpensesPerYear / 12;
+	export let kostenPerJaar: number | null = 0;
+	$: kostenPerMaand = kostenPerJaar ? kostenPerJaar / 12 : null;
 </script>
 
 <section class="card">
@@ -17,14 +17,14 @@
 			<div class="col">
 				<div class="title">Everage per year</div>
 				<div class="desc">
-					<span class="value">{totalExpensesPerYear.toFixed(2)}</span>
+					<span class="value">{kostenPerJaar ? kostenPerJaar.toFixed(2) : ''}</span>
 					<span class="units">€/jaar</span>
 				</div>
 			</div>
 			<div class="col">
-				<div class="title">Everage per year</div>
+				<div class="title">Everage per month</div>
 				<div class="desc">
-					<span class="value">{totalExpensesPerMonth.toFixed(2)}</span>
+					<span class="value">{kostenPerMaand ? kostenPerMaand.toFixed(2) : ''}</span>
 					<span class="units">€/maand</span>
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 		font-size: 36px;
 		line-height: 48px;
 	}
-	h3{
+	h3 {
 		margin-bottom: 16px;
 	}
 	.footer {

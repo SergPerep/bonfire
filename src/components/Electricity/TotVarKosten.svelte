@@ -1,14 +1,13 @@
-<script>
+<script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
+import Section from '../BaseUI/Section.svelte';
 	export let isMeterkastSlim = false;
-	let elEnkelTotVarKosten = 0; /* 0.470799  €/kWh */
-	let elNormaalTotVarKosten = 0; /* 0.490280 €/kWh */
-	let elDalTotVarKosten = 0; /* 0.445389 €/kWh */
+	export let elEnkelTotVarKosten = 0; /* 0.470799  €/kWh */
+	export let elNormaalTotVarKosten = 0; /* 0.490280 €/kWh */
+	export let elDalTotVarKosten = 0; /* 0.445389 €/kWh */
 </script>
 
-<section>
-	<h2>Totale variabele kosten</h2>
-
+<Section title="Totale variabele kosten">
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">
@@ -25,4 +24,4 @@
 	{:else}
 		<NumberInput label="Elektriciteit Enkel" suffix="€/kWh" bind:value={elEnkelTotVarKosten} />
 	{/if}
-</section>
+</Section>

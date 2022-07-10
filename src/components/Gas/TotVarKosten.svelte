@@ -1,6 +1,6 @@
 <script>
     import NumberInput from "../BaseUI/InputNumber.svelte";
-    let gasTotVarKosten = 0; /* 0.490280 €/m³ */
+    export let gasTotVarKosten = 0; /* 0.490280 €/m³ */
 </script>
 <section>
     <h2>Totale variabele kosten</h2>

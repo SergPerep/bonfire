@@ -1,6 +1,6 @@
 <script>
     import NumberInput from "../BaseUI/InputNumber.svelte";
-    let gasVasteLevKosten = 0; /* 6.489956 €/maand */
+    export let gasNetbeheerKosten = 0; /* 6.489956 €/maand */
 </script>
 
 <section>
@@ -8,6 +8,6 @@
     <NumberInput
         label="Gas netbeheerkosten"
         suffix="€/dag"
-        bind:value={gasVasteLevKosten}
+        bind:value={gasNetbeheerKosten}
     />
 </section>

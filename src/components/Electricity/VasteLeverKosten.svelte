@@ -1,7 +1,9 @@
-<script>
-    import NumberInput from "../BaseUI/InputNumber.svelte";
+<script lang="ts">
+	import NumberInput from '../BaseUI/InputNumber.svelte';
+	import Section from '../BaseUI/Section.svelte';
+	export let elVasteLevKosten: number;
 </script>
-<section>
-    <h2>Vaste leveringskosten</h2>
-    <NumberInput label="Elektriciteit vaste kosten" suffix="€/maand" />
-</section>
+
+<Section title="Vaste leveringskosten">
+	<NumberInput label="Elektriciteit vaste kosten" suffix="€/maand" bind:value={elVasteLevKosten} />
+</Section>

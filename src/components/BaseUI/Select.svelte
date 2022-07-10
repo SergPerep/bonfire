@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let label = 'Label';
+	export let value: number;
 	export let suffix: string | null = null;
 	export let optionList: { year: number; value: number }[];
 
@@ -12,7 +13,7 @@
 <div class="select-field">
 	<label for="select">{label}</label>
 	<div class="field" on:click={handleFieldClick}>
-		<select id="#select">
+		<select id="#select" bind:value={value}>
 			{#each optionList as option (option.year)}
 				<optgroup label={`${option.year}`}>
 					<option value={option.value}>{option.value}</option>

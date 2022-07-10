@@ -1,13 +1,13 @@
 <script>
-    import NumberInput from "../BaseUI/InputNumber.svelte";
-    let elVasteLevKosten = 0; /* 6.489956 €/maand */
+	import NumberInput from '../BaseUI/InputNumber.svelte';
+	import Section from '../BaseUI/Section.svelte';
+	export let elNetbeheerKosten = 0; /* 6.489956 €/maand */
 </script>
 
-<section>
-    <h2>Netbeheerkosten</h2>
-    <NumberInput
-        label="Elektriciteit netbeheerkosten"
-        suffix="€/dag"
-        bind:value={elVasteLevKosten}
-    />
-</section>
+<Section title="Netbeheerkosten">
+	<NumberInput
+		label="Elektriciteit netbeheerkosten"
+		suffix="€/dag"
+		bind:value={elNetbeheerKosten}
+	/>
+</Section>
