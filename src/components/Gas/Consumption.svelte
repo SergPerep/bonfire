@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	export let gasConsumptie = 0; /* 1200 m³/jaar */
+	export let gasConsumptie: number | null; /* 1200 m³/jaar */
 
 	const checkIfVastLevKostenIsValid = (
 		gasConsumptie: number | null

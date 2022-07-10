@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import calculateGasKostenPerJaar from '../../utils/calculateGasKostenPerJaar';
+
 	import Card from '../BaseUI/Card.svelte';
 	import Toggle from '../BaseUI/Toggle.svelte';
 	import Consumption from './Consumption.svelte';
@@ -7,18 +9,24 @@
 	import VastLeverKosten from './VastLeverKosten.svelte';
 
 	let hasGas = true;
-	let gasConsumptie = 0;
-	let gasTotVarKosten = 0;
-	let gasVasteLevKosten = 0;
-	let gasNetbeheerKosten = 0;
+	let gasConsumptie: number | null = null;
+	let gasTotVarKosten: number | null = null;
+	let gasVasteLevKosten: number | null = null;
+	let gasNetbeheerKosten: number | null = null;
 
 	const toggleHasGas = () => (hasGas = !hasGas);
+	$: gasKostenPerJaar = calculateGasKostenPerJaar(
+		gasConsumptie,
+		gasTotVarKosten,
+		gasVasteLevKosten,
+		gasNetbeheerKosten
+	);
 </script>
 
-<Card title="🔥 Gas" kostenPerJaar={1205}>
+<Card title="🔥 Gas" kostenPerJaar={gasKostenPerJaar}>
 	<Toggle text="Household uses gas" isChecked={hasGas} on:click={toggleHasGas} />
-	<Consumption {gasConsumptie} />
-	<TotVarKosten {gasTotVarKosten} />
-	<VastLeverKosten {gasVasteLevKosten} />
-	<Netbeheerkosten {gasNetbeheerKosten} />
+	<Consumption bind:gasConsumptie />
+	<TotVarKosten bind:gasTotVarKosten />
+	<VastLeverKosten bind:gasVasteLevKosten />
+	<Netbeheerkosten bind:gasNetbeheerKosten />
 </Card>

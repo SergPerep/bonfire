@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	export let gasNetbeheerKosten = 0; /* 6.489956 €/maand */
+	export let gasNetbeheerKosten: number | null; /* 6.489956 €/maand */
 
 	const checkIfVastLevKostenIsValid = (
 		gasNetbeheerKosten: number | null

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	export let gasTotVarKosten = 0; /* 0.490280 €/m³ */
+	export let gasTotVarKosten: number | null; /* 0.490280 €/m³ */
 
 	const checkIfVastLevKostenIsValid = (
 		gasTotVarKosten: number | null
