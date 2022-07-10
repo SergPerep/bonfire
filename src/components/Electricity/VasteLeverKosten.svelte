@@ -1,9 +1,9 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	export let elVasteLevKosten: number | null;
+	export let elVasteLevKosten: kosten;
 	const checkIfElVastLevKostenAreValid = (
-		elVasteLevKosten: number | null
+		elVasteLevKosten: kosten
 	): {
 		status: Status;
 		hintStr: string | null;

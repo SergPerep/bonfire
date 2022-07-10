@@ -4,7 +4,7 @@
 	export let elNetbeheerKosten = 0; /* 6.489956 €/maand */
 
 	const checkIfNetbeheerkostenAreValid = (
-		elNetbeheerKosten: number | null
+		elNetbeheerKosten: kosten
 	): { status: Status; hintStr: string | null } => {
 		if (elNetbeheerKosten && elNetbeheerKosten > 0)
 			return {

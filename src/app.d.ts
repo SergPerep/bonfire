@@ -4,6 +4,8 @@
 // for information about these interfaces
 
 declare type Status = "success" | "error" | null;
+declare type kosten = number | null;
+declare type consumption = kosten;
 declare namespace App {
 	// interface Locals {}
 	// interface Platform {}

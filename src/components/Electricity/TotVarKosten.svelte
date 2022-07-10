@@ -2,12 +2,12 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	export let isMeterkastSlim = false;
-	export let elEnkelTotVarKosten: number | null = null; /* 0.470799  €/kWh */
-	export let elNormaalTotVarKosten: number | null = null; /* 0.490280 €/kWh */
-	export let elDalTotVarKosten: number | null = null; /* 0.445389 €/kWh */
+	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
+	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
+	export let elDalTotVarKosten: kosten = null; /* 0.445389 €/kWh */
 
 	const checkIfTotVarKostenAreValid = (
-		totVarKosten: number | null
+		totVarKosten: kosten
 	): {
 		status: Status;
 		hintStr: string | null;

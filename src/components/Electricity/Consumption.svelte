@@ -2,12 +2,12 @@
 	import InputNumber from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	export let isMeterkastSlim = false;
-	export let elConsumptieEnkel: number | null = null; /* 911 kWh/jaar */
-	export let elConsumptieNormaal: number | null = null; /* 507  kWh/jaar */
-	export let elConsumptieDal: number | null = null; /* 402  kWh/jaar */
+	export let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
+	export let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
+	export let elConsumptieDal: consumption = null; /* 402  kWh/jaar */
 
 	const checkIfConsumptieIsValid = (
-		consumptie: number | null
+		consumptie: consumption
 	): {
 		status: Status;
 		hintStr: string | null;

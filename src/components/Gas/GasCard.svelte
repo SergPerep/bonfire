@@ -9,10 +9,10 @@
 	import VastLeverKosten from './VastLeverKosten.svelte';
 
 	let hasGas = true;
-	let gasConsumptie: number | null = null;
-	let gasTotVarKosten: number | null = null;
-	let gasVasteLevKosten: number | null = null;
-	let gasNetbeheerKosten: number | null = null;
+	let gasConsumptie: consumption = null;
+	let gasTotVarKosten: kosten = null;
+	let gasVasteLevKosten: kosten = null;
+	let gasNetbeheerKosten: kosten = null;
 
 	const toggleHasGas = () => (hasGas = !hasGas);
 	$: gasKostenPerJaar = calculateGasKostenPerJaar(
