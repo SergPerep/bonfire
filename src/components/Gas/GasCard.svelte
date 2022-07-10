@@ -15,7 +15,7 @@
 	const toggleHasGas = () => (hasGas = !hasGas);
 </script>
 
-<Card title="🔥 Gas" totalExpensesPerYear={1205}>
+<Card title="🔥 Gas" kostenPerJaar={1205}>
 	<Toggle text="Household uses gas" isChecked={hasGas} on:click={toggleHasGas} />
 	<Consumption {gasConsumptie} />
 	<TotVarKosten {gasTotVarKosten} />
