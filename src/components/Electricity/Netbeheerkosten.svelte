@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	export let elNetbeheerKosten = 0; /* 6.489956 €/maand */
+	export let elNetbeheerKosten: kosten; /* 6.489956 €/maand */
 
 	const checkIfNetbeheerkostenAreValid = (
 		elNetbeheerKosten: kosten

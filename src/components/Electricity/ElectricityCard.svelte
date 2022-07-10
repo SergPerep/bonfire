@@ -14,15 +14,15 @@
 
 	let elYear = -28.6;
 	// let elMonth = elYear / 12;
-	let elConsumptieEnkel = 0; /* 911 kWh/jaar */
-	let elConsumptieNormaal = 0; /* 507  kWh/jaar */
-	let elConsumptieDal = 0; /* 402  kWh/jaar */
-	let elEnkelTotVarKosten = 0; /* 0.470799  €/kWh */
-	let elNormaalTotVarKosten = 0; /* 0.490280 €/kWh */
-	let elDalTotVarKosten = 0; /* 0.445389 €/kWh */
-	let elVasteLevKosten = 0;
+	let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
+	let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
+	let elConsumptieDal: consumption = null; /* 402  kWh/jaar */
+	let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
+	let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
+	let elDalTotVarKosten: kosten = null; /* 0.445389 €/kWh */
+	let elVasteLevKosten: kosten = null;
 	let elVerminEnergBelasting = -2.25965;
-	let elNetbeheerKosten = 0; /* 6.489956 €/maand */
+	let elNetbeheerKosten: kosten = null; /* 6.489956 €/maand */
 
 	$: elKostenPerJaar = calculateElKostenPerJaar({
 		isMeterkastSlim,
