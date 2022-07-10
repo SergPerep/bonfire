@@ -16,7 +16,7 @@
 	];
 </script>
 
-<Section title="Vermindering energiebelasting">
+<Section title="Vermindering energiebelasting" sectionStatus="success">
 	<Select
 		bind:value={elVerminEnergBelasting}
 		label="Vermindering energiebelasting"
