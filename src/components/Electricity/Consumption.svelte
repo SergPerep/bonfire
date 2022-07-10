@@ -6,44 +6,47 @@
 	export let elConsumptieNormaal: number | null = null; /* 507  kWh/jaar */
 	export let elConsumptieDal: number | null = null; /* 402  kWh/jaar */
 
-	type Report = {
+	const checkIfConsumptieIsValid = (
+		consumptie: number | null
+	): {
 		status: Status;
 		hintStr: string | null;
-	};
-
-	const checkIfConsumptieIsValid = (consumptie: number | null): Report => {
-		if (consumptie && consumptie < 0)
+	} => {
+		const defaultReturn = {
+			status: null,
+			hintStr: null
+		};
+		if (!consumptie) return defaultReturn;
+		if (consumptie < 0)
 			return {
 				status: 'error',
 				hintStr: "Can't be negative"
 			};
-		if (consumptie && consumptie > 0)
+		if (consumptie > 0)
 			return {
 				status: 'success',
 				hintStr: null
 			};
-		return {
-			status: null,
-			hintStr: null
-		};
+		return defaultReturn;
 	};
 
 	const checkIfSectionIsValid = (
 		isMeterkastSlim: boolean,
-		normaalReport: Report,
-		dalReport: Report,
-		enkelReport: Report
+		normaalStatus: Status,
+		dalStatus: Status,
+		enkelStatus: Status
 	) => {
-		if (!isMeterkastSlim) return enkelReport.status;
-		if (normaalReport.status === 'error' || dalReport.status === 'error') return 'error';
-		if (normaalReport.status === 'success' && dalReport.status === 'success') return 'success';
+		if (!isMeterkastSlim) return enkelStatus;
+		if (normaalStatus === 'error' || dalStatus === 'error') return 'error';
+		if (normaalStatus === 'success' && dalStatus === 'success') return 'success';
 		return null;
 	};
 
-	$: normaalReport = checkIfConsumptieIsValid(elConsumptieNormaal);
-	$: dalReport = checkIfConsumptieIsValid(elConsumptieDal);
-	$: enkelReport = checkIfConsumptieIsValid(elConsumptieEnkel);
-	$: sectionStatus = checkIfSectionIsValid(isMeterkastSlim, normaalReport, dalReport, enkelReport);
+	$: ({ status: normaalStatus, hintStr: normaalHintStr } =
+		checkIfConsumptieIsValid(elConsumptieNormaal));
+	$: ({ status: dalStatus, hintStr: dalHintStr } = checkIfConsumptieIsValid(elConsumptieDal));
+	$: ({ status: enkelStatus, hintStr: enkelHintStr } = checkIfConsumptieIsValid(elConsumptieEnkel));
+	$: sectionStatus = checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus);
 </script>
 
 <Section title="Consumption" bind:sectionStatus>
@@ -54,8 +57,8 @@
 					label="Consumption Normaal"
 					suffix="kWh"
 					bind:value={elConsumptieNormaal}
-					status={normaalReport.status}
-					hintStr={normaalReport.hintStr}
+					status={normaalStatus}
+					hintStr={normaalHintStr}
 				/>
 			</div>
 			<div class="col-2">
@@ -63,8 +66,8 @@
 					label="Consumption Dal"
 					suffix="kWh"
 					bind:value={elConsumptieDal}
-					status={dalReport.status}
-					hintStr={dalReport.hintStr}
+					status={dalStatus}
+					hintStr={dalHintStr}
 				/>
 			</div>
 		</div>
@@ -73,8 +76,8 @@
 			label="Consumption Enkel"
 			suffix="kWh"
 			bind:value={elConsumptieEnkel}
-			status={enkelReport.status}
-			hintStr={enkelReport.hintStr}
+			status={enkelStatus}
+			hintStr={enkelHintStr}
 		/>
 	{/if}
 </Section>
