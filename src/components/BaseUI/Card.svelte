@@ -1,7 +1,34 @@
 <script lang="ts">
+	import { sectionStatuses } from '../../stores/Store';
+
 	export let title = 'Card title';
 	export let kostenPerJaar: number | null = 0;
 	$: kostenPerMaand = kostenPerJaar ? kostenPerJaar / 12 : null;
+	$: sectionList = [
+		{
+			id: '#el-consumption',
+			title: 'Consumption',
+			status: $sectionStatuses.elConsumption
+		},
+		{
+			id: '#el-totale-variabele-kosten',
+			title: 'Totale variabele kosten',
+			status: $sectionStatuses.elTotVarKosten
+		},
+		{
+			id: '#el-vaste-leveringskosten',
+			title: 'Vaste leveringskosten',
+			status: $sectionStatuses.elVasteLeverKosten
+		},
+		{
+			id: '#el-netbeheerkosten',
+			title: 'Netbeheerkosten',
+			status: $sectionStatuses.elNetbeheerkosten
+		}
+	];
+	$: cardStatus = sectionList.reduce((prevVal, curVal) => {
+		return prevVal && (curVal.status === "success");
+	}, true);
 </script>
 
 <section class="card">
@@ -13,22 +40,45 @@
 	</div>
 	<div class="footer">
 		<h3>Totaal Elektriciteit kosten</h3>
-		<div class="container">
-			<div class="col">
-				<div class="title">Everage per year</div>
-				<div class="desc">
-					<span class="value">{kostenPerJaar ? kostenPerJaar.toFixed(2) : ''}</span>
-					<span class="units">€/jaar</span>
+		{#if cardStatus}
+			<div class="container">
+				<div class="col">
+					<div class="title">Everage per year</div>
+					<div class="desc">
+						<span class="value">{kostenPerJaar ? kostenPerJaar.toFixed(2) : ''}</span>
+						<span class="units">€/jaar</span>
+					</div>
+				</div>
+				<div class="col">
+					<div class="title">Everage per month</div>
+					<div class="desc">
+						<span class="value">{kostenPerMaand ? kostenPerMaand.toFixed(2) : ''}</span>
+						<span class="units">€/maand</span>
+					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="title">Everage per month</div>
-				<div class="desc">
-					<span class="value">{kostenPerMaand ? kostenPerMaand.toFixed(2) : ''}</span>
-					<span class="units">€/maand</span>
+		{:else}
+			{#each sectionList as section (section.title)}
+				<div class="list">
+					<div class="icon" class:success={section.status === 'success'}>
+						{#if section.status === 'success'}
+							<span class="material-symbols-outlined"> check_small </span>
+						{:else}
+							<span class="material-symbols-outlined"> check_indeterminate_small </span>
+						{/if}
+					</div>
+					<span class="desc">
+						{#if section.status === 'error'}
+							Fill <a href={section.id}>{section.title}</a> correctly
+						{:else if section.status === 'success'}
+							<a href={section.id}>{section.title}</a>
+						{:else}
+							Fill <a href={section.id}>{section.title}</a>
+						{/if}
+					</span>
 				</div>
-			</div>
-		</div>
+			{/each}
+		{/if}
 	</div>
 </section>
 
@@ -74,6 +124,26 @@
 			.units {
 				font-size: 18px;
 			}
+		}
+	}
+
+	.list {
+		display: flex;
+		justify-content: space-between;
+		.desc {
+			width: calc(100% - 24px - 4px);
+		}
+	}
+
+	.icon {
+		width: 24px;
+		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: colors.$error;
+		&.success {
+			color: colors.$success;
 		}
 	}
 </style>

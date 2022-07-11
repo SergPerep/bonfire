@@ -1,11 +1,12 @@
 <script lang="ts">
 	export let title = 'Section';
 	export let sectionStatus: Status = null;
+	export let id: string;
 	let error = sectionStatus === 'error';
 	let success = sectionStatus === 'success';
 </script>
 
-<section class:error class:success>
+<section class:error class:success {id}>
 	<header>
 		{#if sectionStatus === 'success'}
 			<span class="material-symbols-outlined icon-check"> check_circle </span>

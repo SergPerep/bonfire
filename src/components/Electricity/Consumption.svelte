@@ -1,6 +1,7 @@
 <script lang="ts">
 	import InputNumber from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
+	import { sectionStatuses } from '../../stores/Store';
 	export let isMeterkastSlim = false;
 	export let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
 	export let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
@@ -46,10 +47,14 @@
 		checkIfConsumptieIsValid(elConsumptieNormaal));
 	$: ({ status: dalStatus, hintStr: dalHintStr } = checkIfConsumptieIsValid(elConsumptieDal));
 	$: ({ status: enkelStatus, hintStr: enkelHintStr } = checkIfConsumptieIsValid(elConsumptieEnkel));
-	$: sectionStatus = checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus);
+
+	$: {
+		$sectionStatuses.elConsumption = checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus);
+		console.log("sectionStatuses " + $sectionStatuses);
+	}
 </script>
 
-<Section title="Consumption" bind:sectionStatus>
+<Section title="Consumption" sectionStatus={$sectionStatuses.elConsumption} id="el-consumption">
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

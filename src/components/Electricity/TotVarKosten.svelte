@@ -1,6 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
+	import { sectionStatuses } from '../../stores/Store';
 	export let isMeterkastSlim = false;
 	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
 	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
@@ -47,10 +48,17 @@
 	$: ({ status: dalStatus, hintStr: dalHintStr } = checkIfTotVarKostenAreValid(elDalTotVarKosten));
 	$: ({ status: enkelStatus, hintStr: enkelHintStr } =
 		checkIfTotVarKostenAreValid(elEnkelTotVarKosten));
-	$: sectionStatus = checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus);
+	$: {
+		$sectionStatuses.elTotVarKosten = checkIfSectionIsValid(
+			isMeterkastSlim,
+			normaalStatus,
+			dalStatus,
+			enkelStatus
+		);
+	}
 </script>
 
-<Section title="Totale variabele kosten" {sectionStatus}>
+<Section title="Totale variabele kosten" id="el-totale-variabele-kosten" sectionStatus={$sectionStatuses.elTotVarKosten}>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">
