@@ -1,16 +1,14 @@
 <script lang="ts">
 	export let title = 'Section';
-	export let sectionStatus: Status = null;
+	export let status: Status = null;
 	export let id: string;
-	let error = sectionStatus === 'error';
-	let success = sectionStatus === 'success';
 </script>
 
-<section class:error class:success {id}>
+<section class:error={status === "error"} class:success={status === "success"} {id}>
 	<header>
-		{#if sectionStatus === 'success'}
+		{#if status === 'success'}
 			<span class="material-symbols-outlined icon-check"> check_circle </span>
-		{:else if sectionStatus === 'error'}
+		{:else if status === 'error'}
 			<span class="material-symbols-outlined icon-error"> error </span>
 		{/if}
 		<h2>{title}</h2>

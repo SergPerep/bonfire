@@ -1,31 +1,9 @@
 <script lang="ts">
-	import { sectionStatuses } from '../../stores/Store';
 
 	export let title = 'Card title';
 	export let kostenPerJaar: number | null = 0;
 	$: kostenPerMaand = kostenPerJaar ? kostenPerJaar / 12 : null;
-	$: sectionList = [
-		{
-			id: '#el-consumption',
-			title: 'Consumption',
-			status: $sectionStatuses.elConsumption
-		},
-		{
-			id: '#el-totale-variabele-kosten',
-			title: 'Totale variabele kosten',
-			status: $sectionStatuses.elTotVarKosten
-		},
-		{
-			id: '#el-vaste-leveringskosten',
-			title: 'Vaste leveringskosten',
-			status: $sectionStatuses.elVasteLeverKosten
-		},
-		{
-			id: '#el-netbeheerkosten',
-			title: 'Netbeheerkosten',
-			status: $sectionStatuses.elNetbeheerkosten
-		}
-	];
+	export let sectionList: Sections = [];
 	$: cardStatus = sectionList.reduce((prevVal, curVal) => {
 		return prevVal && (curVal.status === "success");
 	}, true);
@@ -69,11 +47,11 @@
 					</div>
 					<span class="desc">
 						{#if section.status === 'error'}
-							Fill <a href={section.id}>{section.title}</a> correctly
+							Fill <a href={"#" + section.id}>{section.title}</a> correctly
 						{:else if section.status === 'success'}
-							<a href={section.id}>{section.title}</a>
+							<a href={"#" + section.id}>{section.title}</a>
 						{:else}
-							Fill <a href={section.id}>{section.title}</a>
+							Please fill <a href={"#" + section.id}>{section.title}</a>
 						{/if}
 					</span>
 				</div>

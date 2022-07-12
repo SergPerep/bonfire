@@ -1,11 +1,13 @@
 <script lang="ts">
 	import InputNumber from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sectionStatuses } from '../../stores/Store';
+	import { getSectionTitle, sections, getSectionStatus } from '../../stores/Store';
 	export let isMeterkastSlim = false;
 	export let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
 	export let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
 	export let elConsumptieDal: consumption = null; /* 402  kWh/jaar */
+
+	const id = 'el-consumption';
 
 	const checkIfConsumptieIsValid = (
 		consumptie: consumption
@@ -48,13 +50,15 @@
 	$: ({ status: dalStatus, hintStr: dalHintStr } = checkIfConsumptieIsValid(elConsumptieDal));
 	$: ({ status: enkelStatus, hintStr: enkelHintStr } = checkIfConsumptieIsValid(elConsumptieEnkel));
 
-	$: {
-		$sectionStatuses.elConsumption = checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus);
-		console.log("sectionStatuses " + $sectionStatuses);
-	}
+	$: sections.setStatus(
+		id,
+		checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus)
+	);
+	const sectionTitle = getSectionTitle(id, $sections);
+	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
 
-<Section title="Consumption" sectionStatus={$sectionStatuses.elConsumption} id="el-consumption">
+<Section title={sectionTitle} status={sectionStatus} {id}>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

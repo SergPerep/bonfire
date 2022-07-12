@@ -1,7 +1,11 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
+	import {sections, getSectionStatus, getSectionTitle} from "../../stores/Store";
 	export let gasTotVarKosten: kosten; /* 0.490280 €/m³ */
+
+	const id = 'gas-totale-variabele-kosten';
+	const sectionTitle = getSectionTitle(id, $sections);
 
 	const checkIfVastLevKostenIsValid = (
 		gasTotVarKosten: kosten
@@ -27,9 +31,11 @@
 		return defaultReturn;
 	};
 	$: ({ status, hintStr } = checkIfVastLevKostenIsValid(gasTotVarKosten));
+	$: sections.setStatus(id, status);
+	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
 
-<Section title="Totale variabele kosten" sectionStatus={status}>
+<Section title={sectionTitle} status={sectionStatus} {id}>
 	<NumberInput
 		label="Gas vaste kosten"
 		bind:value={gasTotVarKosten}

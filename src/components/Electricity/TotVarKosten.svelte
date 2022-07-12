@@ -1,11 +1,14 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sectionStatuses } from '../../stores/Store';
+	import { sections, getSectionTitle, getSectionStatus } from '../../stores/Store';
 	export let isMeterkastSlim = false;
 	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
 	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
 	export let elDalTotVarKosten: kosten = null; /* 0.445389 €/kWh */
+
+	const id = 'el-totale-variabele-kosten';
+	const sectionTitle = getSectionTitle(id, $sections);
 
 	const checkIfTotVarKostenAreValid = (
 		totVarKosten: kosten
@@ -48,17 +51,14 @@
 	$: ({ status: dalStatus, hintStr: dalHintStr } = checkIfTotVarKostenAreValid(elDalTotVarKosten));
 	$: ({ status: enkelStatus, hintStr: enkelHintStr } =
 		checkIfTotVarKostenAreValid(elEnkelTotVarKosten));
-	$: {
-		$sectionStatuses.elTotVarKosten = checkIfSectionIsValid(
-			isMeterkastSlim,
-			normaalStatus,
-			dalStatus,
-			enkelStatus
-		);
-	}
+	$: sections.setStatus(
+		id,
+		checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus)
+	);
+	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
 
-<Section title="Totale variabele kosten" id="el-totale-variabele-kosten" sectionStatus={$sectionStatuses.elTotVarKosten}>
+<Section title={sectionTitle} status={sectionStatus} {id}>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

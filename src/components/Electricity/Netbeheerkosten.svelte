@@ -1,8 +1,9 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sectionStatuses } from '../../stores/Store';
+	import { sections, getSectionStatus, getSectionTitle } from '../../stores/Store';
 	export let elNetbeheerKosten: kosten; /* 6.489956 €/maand */
+	const id = 'el-netbeheerkosten';
 
 	const checkIfNetbeheerkostenAreValid = (
 		elNetbeheerKosten: kosten
@@ -24,12 +25,12 @@
 	};
 
 	$: ({ status, hintStr } = checkIfNetbeheerkostenAreValid(elNetbeheerKosten));
-	$: {
-		$sectionStatuses.elNetbeheerkosten = status;
-	}
+	$: sections.setStatus(id, status);
+	$: sectionStatus = getSectionStatus(id, $sections);
+	$: title = getSectionTitle(id, $sections);
 </script>
 
-<Section title="Netbeheerkosten" id="el-netbeheerkosten" sectionStatus={$sectionStatuses.elNetbeheerkosten}>
+<Section {title} {id} status={sectionStatus}>
 	<NumberInput
 		label="Elektriciteit netbeheerkosten"
 		suffix="€/dag"

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
+	import { sections, getSectionStatus, getSectionTitle } from '../../stores/Store';
 	export let gasNetbeheerKosten: kosten; /* 6.489956 €/maand */
+
+	const id = "gas-netbeheerkosten";
+	const sectionTitle = getSectionTitle(id, $sections);
 
 	const checkIfVastLevKostenIsValid = (
 		gasNetbeheerKosten: kosten
@@ -27,9 +31,11 @@
 		return defaultReturn;
 	};
 	$: ({ status, hintStr } = checkIfVastLevKostenIsValid(gasNetbeheerKosten));
+	$: sections.setStatus(id, status);
+	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
 
-<Section title="Netbeheerkosten" sectionStatus={status}>
+<Section title={sectionTitle} status={sectionStatus} {id}>
 	<NumberInput
 		label="Gas netbeheerkosten"
 		suffix="€/dag"

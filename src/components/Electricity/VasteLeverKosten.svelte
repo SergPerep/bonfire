@@ -1,8 +1,11 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sectionStatuses } from '../../stores/Store';
+	import { sections, getSectionStatus, getSectionTitle } from '../../stores/Store';
 	export let elVasteLevKosten: kosten;
+
+	const id = 'el-vaste-leveringskosten';
+	const sectionTitle = getSectionTitle(id, $sections);
 	const checkIfElVastLevKostenAreValid = (
 		elVasteLevKosten: kosten
 	): {
@@ -25,12 +28,11 @@
 		};
 	};
 	$: ({ status, hintStr } = checkIfElVastLevKostenAreValid(elVasteLevKosten));
-	$: {
-		$sectionStatuses.elVasteLeverKosten = status;
-	}
+	$: sections.setStatus(id, status);
+	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
 
-<Section title="Vaste leveringskosten" id="el-vaste-leveringskosten" sectionStatus={$sectionStatuses.elVasteLeverKosten}>
+<Section title={sectionTitle} status={sectionStatus} {id}>
 	<NumberInput
 		label="Elektriciteit vaste kosten"
 		suffix="€/maand"
