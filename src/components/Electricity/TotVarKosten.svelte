@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sections, getSectionTitle, getSectionStatus } from '../../stores/Store';
+	import { sections, getSectionTitle, getSectionStatus } from '../../stores/sections';
 	export let isMeterkastSlim = false;
 	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
 	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */

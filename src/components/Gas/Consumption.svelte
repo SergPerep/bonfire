@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sections, getSectionStatus, getSectionTitle } from '../../stores/Store';
+	import { sections, getSectionStatus, getSectionTitle } from '../../stores/sections';
 	export let gasConsumptie: consumption; /* 1200 m³/jaar */
 
 	const id = 'gas-consumption';

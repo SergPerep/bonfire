@@ -7,7 +7,7 @@
 	import Netbeheerkosten from './Netbeheerkosten.svelte';
 	import TotVarKosten from './TotVarKosten.svelte';
 	import VastLeverKosten from './VastLeverKosten.svelte';
-	import {sections} from "../../stores/Store";
+	import {sections} from "../../stores/sections";
 
 	let hasGas = true;
 	let gasConsumptie: consumption = null;

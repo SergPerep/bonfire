@@ -1,7 +1,7 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sections, getSectionStatus, getSectionTitle } from '../../stores/Store';
+	import { sections, getSectionStatus, getSectionTitle } from '../../stores/sections';
 	export let elNetbeheerKosten: kosten; /* 6.489956 €/maand */
 	const id = 'el-netbeheerkosten';
 

@@ -7,7 +7,7 @@
 	import VermBelasting from './VermBelasting.svelte';
 	import Netbeheerkosten from './Netbeheerkosten.svelte';
 	import calculateElKostenPerJaar from '../../utils/calculateElKostenPerJaar';
-	import {sections} from "../../stores/Store";
+	import {sections} from "../../stores/sections";
 
 	/* ===== Elektriciteit ===== */
 	let isMeterkastSlim = true;

@@ -55,7 +55,7 @@ function createSections() {
         status: null,
         group: "gas"
     }
-]);
+    ]);
     const { subscribe, set, update } = sections;
 
     return {
@@ -83,7 +83,7 @@ export const getSectionTitle = (id: string, sections: Sections) => {
     return title;
 }
 
-export const  getSectionStatus = (id: string, sections: Sections) => {
+export const getSectionStatus = (id: string, sections: Sections) => {
     const section = getSection(id, sections);
     const status = section?.status || null;
     return status;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InputNumber from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { getSectionTitle, sections, getSectionStatus } from '../../stores/Store';
+	import { getSectionTitle, sections, getSectionStatus } from '../../stores/sections';
 	export let isMeterkastSlim = false;
 	export let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
 	export let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
