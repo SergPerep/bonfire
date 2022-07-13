@@ -7,7 +7,8 @@
 	import VermBelasting from './VermBelasting.svelte';
 	import Netbeheerkosten from './Netbeheerkosten.svelte';
 	import calculateElKostenPerJaar from '../../utils/calculateElKostenPerJaar';
-	import {sections} from "../../stores/sections";
+	import { sections } from '../../stores/sections';
+	import { elKostenPerJaar } from '../../stores/kostenPerJaar';
 
 	/* ===== Elektriciteit ===== */
 	let isMeterkastSlim = true;
@@ -25,7 +26,7 @@
 	let elVerminEnergBelasting = -2.25965;
 	let elNetbeheerKosten: kosten = null; /* 6.489956 €/maand */
 
-	$: elKostenPerJaar = calculateElKostenPerJaar({
+	$: $elKostenPerJaar = calculateElKostenPerJaar({
 		isMeterkastSlim,
 		elConsumptieEnkel,
 		elConsumptieNormaal,
@@ -38,7 +39,7 @@
 		elNetbeheerKosten
 	});
 
-	$: sectionList = $sections.filter(section => section.group === "el");
+	$: sectionList = $sections.filter((section) => section.group === 'el');
 
 	$: {
 		// console.log({
@@ -54,11 +55,9 @@
 		// 	elNetbeheerKosten
 		// });
 	}
-
-	
 </script>
 
-<Card title="⚡️ Elektriciteit" kostenPerJaar={elKostenPerJaar} {sectionList}>
+<Card title="⚡️ Elektriciteit" kostenPerJaar={$elKostenPerJaar} {sectionList}>
 	<Toggle text="Slim meterkast" isChecked={isMeterkastSlim} on:click={toggleIsMeterkastSlim} />
 	<Consumption
 		{isMeterkastSlim}

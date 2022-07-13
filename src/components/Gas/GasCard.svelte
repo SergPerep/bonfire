@@ -7,7 +7,8 @@
 	import Netbeheerkosten from './Netbeheerkosten.svelte';
 	import TotVarKosten from './TotVarKosten.svelte';
 	import VastLeverKosten from './VastLeverKosten.svelte';
-	import {sections} from "../../stores/sections";
+	import { sections } from '../../stores/sections';
+	import { gasKostenPerJaar } from '../../stores/kostenPerJaar';
 
 	let hasGas = true;
 	let gasConsumptie: consumption = null;
@@ -16,16 +17,16 @@
 	let gasNetbeheerKosten: kosten = null;
 
 	const toggleHasGas = () => (hasGas = !hasGas);
-	$: gasKostenPerJaar = calculateGasKostenPerJaar(
+	$: $gasKostenPerJaar = calculateGasKostenPerJaar(
 		gasConsumptie,
 		gasTotVarKosten,
 		gasVasteLevKosten,
 		gasNetbeheerKosten
 	);
-	$: sectionList = $sections.filter(section => section.group === "gas");
+	$: sectionList = $sections.filter((section) => section.group === 'gas');
 </script>
 
-<Card title="🔥 Gas" kostenPerJaar={gasKostenPerJaar} {sectionList}>
+<Card title="🔥 Gas" kostenPerJaar={$gasKostenPerJaar} {sectionList}>
 	<Toggle text="Household uses gas" isChecked={hasGas} on:click={toggleHasGas} />
 	<Consumption bind:gasConsumptie />
 	<TotVarKosten bind:gasTotVarKosten />
