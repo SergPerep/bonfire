@@ -57,6 +57,8 @@
 	.total {
 		background-color: white;
 		border-radius: 12px;
+        position: fixed;
+        top: 40px;
 	}
 	header {
 		padding: 24px 24px 4px;
