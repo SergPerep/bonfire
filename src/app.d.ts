@@ -14,6 +14,22 @@ type Section = {
     group: "el" | "gas"
 };
 type Sections = Section[];
+
+type TableData = {
+    title: string;
+    eenheden: string;
+    rows: {
+        name: string,
+        eenheden?: string,
+        inclBTW: string
+    }[],
+    total?: {
+        name: string,
+        eenheden?: string,
+        inclBTW: string
+    }
+}
+
 declare namespace App {
 	// interface Locals {}
 	// interface Platform {}

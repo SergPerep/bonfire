@@ -3,6 +3,7 @@
 	import ElectricityCard from '../components/Electricity/ElectricityCard.svelte';
 	import GasCard from '../components/Gas/GasCard.svelte';
 	import Total from '../components/Total/Total.svelte';
+	import Help from '../components/Help/Help.svelte';
 </script>
 
 <main>
@@ -13,6 +14,7 @@
 		</div>
 		<div class="col-2"><Total /></div>
 	</div>
+	<!--<Help />-->
 </main>
 
 <style lang="scss">
@@ -22,10 +24,10 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	.col-1{
+	.col-1 {
 		width: calc(65% - 12px);
 	}
-	.col-2{
+	.col-2 {
 		width: calc(35% - 12px);
 	}
 </style>
