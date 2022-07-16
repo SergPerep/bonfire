@@ -10,10 +10,10 @@
 	</thead>
 	<tbody>
 		{#each tableData.rows as row}
-			<tr>
+			<tr class:active={row.isActive}>
 				<td>{row.name}</td>
-				<td
-					>{#if row.eenheden}
+				<td>
+					{#if row.eenheden}
 						{row.eenheden}
 					{:else}
 						{tableData.eenheden}
@@ -23,10 +23,10 @@
 			</tr>
 		{/each}
 		{#if tableData.total}
-			<tr class="total">
+			<tr class="total" class:active={tableData.total.isActive}>
 				<td>{tableData.total.name}</td>
-				<td
-					>{#if tableData.total.eenheden}
+				<td>
+					{#if tableData.total.eenheden}
 						{tableData.total.eenheden}
 					{:else}
 						{tableData.eenheden}
@@ -43,7 +43,7 @@
 		width: 100%;
 		background: white;
 		border-collapse: collapse;
-        margin: 16px 0;
+		margin: 16px 0;
 	}
 	th {
 		text-align: left;
@@ -60,15 +60,18 @@
 			text-align: right;
 		}
 	}
-	tbody tr:nth-last-child(2) td {
-		padding-bottom: 8px;
-	}
+	// tbody tr:nth-last-child(2) td {
+	// 	padding-bottom: 8px;
+	// }
 	.total td {
 		// padding-top: 4px;
 		border-top: 2px solid colors.$black-a12;
 		font-weight: bold;
 	}
-	tbody tr:nth-child(2n) td{
+	tbody tr:nth-child(2n) td {
 		background-color: colors.$black-a08;
+	}
+	table tr.active td{
+		background-color: colors.$success;
 	}
 </style>

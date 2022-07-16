@@ -3,7 +3,7 @@
 	import ElectricityCard from '../components/Electricity/ElectricityCard.svelte';
 	import GasCard from '../components/Gas/GasCard.svelte';
 	import Total from '../components/Total/Total.svelte';
-	import Help from '../components/Help/Help.svelte';
+	import HelpScreen from '../components/Help/HelpScreen.svelte';
 </script>
 
 <main>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-2"><Total /></div>
 	</div>
-	<!--<Help />-->
+	<HelpScreen />
 </main>
 
 <style lang="scss">

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Table from './Table.svelte';
+	export let isTotVarKostEnkTarActive = false;
 
 	const elVarKostenEnkelTarief = {
 		title: 'Variabele kosten enkeltarief',
@@ -7,22 +8,28 @@
 		rows: [
 			{
 				name: 'Variabele leveringskosten',
-				inclBTW: '0.084085'
+				inclBTW: '0.084085',
+				isActive: false
 			},
 			{
 				name: 'Energiebelasting',
-				inclBTW: '0.114079'
+				inclBTW: '0.114079',
+				isActive: false
 			},
 			{
 				name: 'Opslag duurzame energie',
-				inclBTW: '0.036300'
+				inclBTW: '0.036300',
+				isActive: false
 			}
 		],
 		total: {
 			name: 'Totale variabele kosten enkeltarief',
-			inclBTW: '0.234474'
+			inclBTW: '0.234474',
+			isActive: isTotVarKostEnkTarActive
 		}
 	};
+
+	export let isElTotVarKostNormTarActive = false;
 
 	const elVarKsotenNormaalTarief = {
 		title: 'Variabele kosten normaaltarief',
@@ -30,22 +37,28 @@
 		rows: [
 			{
 				name: 'Variabele leveringskosten',
-				inclBTW: '0.089298'
+				inclBTW: '0.089298',
+				isActive: false
 			},
 			{
 				name: 'Energiebelasting',
-				inclBTW: '0.114079'
+				inclBTW: '0.114079',
+				isActive: false
 			},
 			{
 				name: 'Opslag duurzame energie',
-				inclBTW: '0.036300'
+				inclBTW: '0.036300',
+				isActive: false
 			}
 		],
 		total: {
 			name: 'Totale variabele kosten normaaltarief',
-			inclBTW: '0.239677'
+			inclBTW: '0.239677',
+			isActive: isElTotVarKostNormTarActive
 		}
 	};
+
+	export let isElTotVarKostDalTarActive = false;
 
 	const elVarKsotenDalTarief = {
 		title: 'Variabele kosten daltarief',
@@ -53,22 +66,28 @@
 		rows: [
 			{
 				name: 'Variabele leveringskosten',
-				inclBTW: '0.078529'
+				inclBTW: '0.078529',
+				isActive: false
 			},
 			{
 				name: 'Energiebelasting',
-				inclBTW: '0.114079'
+				inclBTW: '0.114079',
+				isActive: false
 			},
 			{
 				name: 'Opslag duurzame energie',
-				inclBTW: '0.036300'
+				inclBTW: '0.036300',
+				isActive: false
 			}
 		],
 		total: {
 			name: 'Totale variabele kosten daltarief',
-			inclBTW: '0.239677'
+			inclBTW: '0.239677',
+			isActive: isElTotVarKostDalTarActive
 		}
 	};
+
+
 
 	const elTerugLeverTarief = {
 		title: 'Teruglevertarief',
@@ -76,10 +95,15 @@
 		rows: [
 			{
 				name: 'Teruglevertarief na salderen',
-				inclBTW: '0.054934'
+				inclBTW: '0.054934',
+				isActive: false
 			}
 		]
 	};
+
+	export let isElVasLevKostActive = false;
+	export let isElVermEnrgBelastActive = false;
+	export let isElNetBehKostActive = false;
 
     const elVasteKosten = {
         title: "Vaste kosten elektriciteit",
@@ -88,18 +112,23 @@
             {
                 name: "Vaste leveringskosten",
                 eenheden: "€/maand",
-                inclBTW: "6.489956"
+                inclBTW: "6.489956",
+				isActive: isElVasLevKostActive
             },
             {
                 name: "Vermindering energiebelasting",
-                inclBTW: "-1,530302"
+                inclBTW: "-1,530302",
+				isActive: isElVermEnrgBelastActive
             },
             {
                 name: "Netbeheerkosten",
-                inclBTW: "0.651585"
+                inclBTW: "0.651585",
+				isActive: isElNetBehKostActive
             }
         ]
     }
+
+	export let isGasTotVarKostTarActive = false;
 
     const gasVarKosten = {
         title: "Variabele kosten gas",
@@ -107,22 +136,29 @@
         rows: [
             {
                 name: "Variabele leveringskosten",
-                inclBTW: "0.300080"
+                inclBTW: "0.300080",
+				isActive: false
             },
             {
                 name: "Energiebelasting",
-                inclBTW: "0.421758"
+                inclBTW: "0.421758",
+				isActive: false
             },
             {
                 name: "Opslag duurzame energie",
-                inclBTW: "0.102971"
+                inclBTW: "0.102971",
+				isActive: false
             }
         ],
         total: {
             name: 'Totale variabele kosten normaaltarief',
-            inclBTW: "0.824809"
+            inclBTW: "0.824809",
+			isActive: isGasTotVarKostTarActive
         }
     }
+
+	export let isGasVasLevKostActive = false;
+	export let isGasNetBehKostActive = false;
 
     const gasVasteKosten = {
         title: "Vaste kosten gas",
@@ -131,11 +167,13 @@
             {
                 name: "Vaste leveringskosten",
                 eenheden: "€/maand",
-                inclBTW: "6.489956"
+                inclBTW: "6.489956",
+				isActive: isGasVasLevKostActive
             },
             {
                 name: "Netbeheerkosten",
-                inclBTW: "0.484242"
+                inclBTW: "0.484242",
+				isActive: isGasNetBehKostActive
             }
         ]
     }

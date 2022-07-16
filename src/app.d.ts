@@ -21,12 +21,14 @@ type TableData = {
     rows: {
         name: string,
         eenheden?: string,
-        inclBTW: string
+        inclBTW: string,
+        isActive: boolean
     }[],
     total?: {
         name: string,
         eenheden?: string,
-        inclBTW: string
+        inclBTW: string,
+        isActive: boolean
     }
 }
 
