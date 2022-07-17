@@ -67,6 +67,9 @@
 <Section title={sectionTitle} status={sectionStatus} {id}>
 	<p>Electricity rates that are charged by an energy supplier. <span class="link" on:click={openHelpScreen}>Where to find?</span>	</p>
 	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
+		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
+		<p>Locate there <b>Totale variabele kosten</b> for electricity.</p> 
+		<p>If your meterkast is not slim, meaning it recieves only one parameter, use enkeltarief. If your meterkast is slim, meaning it recieves two parameters, use normaaltarief (day rate) and daltarief (night rate).</p> 
 		<CoolblueTarieven
 			isElTotVarKostNormTarActive={true}
 			isElTotVarKostDalTarActive={true}
