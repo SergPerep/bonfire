@@ -59,6 +59,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>How much electricity you consume within a year.</p>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

@@ -36,6 +36,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>How much gas you consume within a year.</p>
 	<NumberInput
 		label="Consumption per jaar"
 		suffix="m³"

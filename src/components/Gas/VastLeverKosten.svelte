@@ -36,6 +36,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>Fixed costs that atr charged by your energy supplier for gas. They are independent of your consumption and the same every month.</p>
 	<NumberInput
 		label="Gas vaste kosten"
 		suffix="€/maand"

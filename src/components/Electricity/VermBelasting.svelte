@@ -21,6 +21,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>Tax reduction for electricity. Different every year.</p>
 	<Select
 		bind:value={elVerminEnergBelasting}
 		label="Vermindering energiebelasting"

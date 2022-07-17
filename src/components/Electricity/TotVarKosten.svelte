@@ -65,7 +65,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<span class="link" on:click={openHelpScreen}>Where to find <b>{sectionTitle}</b>?</span>
+	<p>Electricity rates that are charged by an energy supplier. <span class="link" on:click={openHelpScreen}>Where to find?</span>	</p>
 	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
 		<CoolblueTarieven
 			isElTotVarKostNormTarActive={true}

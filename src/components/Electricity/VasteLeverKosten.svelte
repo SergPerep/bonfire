@@ -33,6 +33,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>Fixed costs that are charged by an energy supplier for electricity. They are independent of your consumption and the same every month. </p>
 	<NumberInput
 		label="Elektriciteit vaste kosten"
 		suffix="€/maand"

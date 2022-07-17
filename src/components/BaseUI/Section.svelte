@@ -24,8 +24,10 @@
 	}
 	header {
 		display: flex;
+		margin-bottom: 12px;
 		h2 {
 			width: calc(100% - 24px - 8px);
+			margin-bottom: 0;
 		}
 	}
 	.icon-check,

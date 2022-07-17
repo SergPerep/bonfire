@@ -36,6 +36,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>Costs that are charged by a grid operator for connection and transport of electricity.</p>
 	<NumberInput
 		label="Gas netbeheerkosten"
 		suffix="€/dag"

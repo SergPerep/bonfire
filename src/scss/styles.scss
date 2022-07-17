@@ -28,7 +28,8 @@ h2 {
     width: calc((100% - 24px) / 2);
 }
 
-a, .link {
+a,
+.link {
     color: colors.$link-blue;
     // text-decoration: underline;
 }
@@ -45,4 +46,9 @@ b {
     border-radius: 2px;
     line-height: 24px;
     // color: colors.$success;
+}
+
+p {
+    @include fonts.body;
+    margin: 16px 0;
 }

@@ -36,6 +36,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<p>Gas rates charged by an energy supplier.</p>
 	<NumberInput
 		label="Gas vaste kosten"
 		bind:value={gasTotVarKosten}
