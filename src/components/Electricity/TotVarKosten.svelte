@@ -2,6 +2,8 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import { sections, getSectionTitle, getSectionStatus } from '../../stores/sections';
+	import HelpScreen from '../Help/HelpScreen.svelte';
+	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 	export let isMeterkastSlim = false;
 	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
 	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
@@ -45,6 +47,10 @@
 		if (normaalStatus === 'success' && dalStatus === 'success') return 'success';
 		return null;
 	};
+	let isHelpScreenOpen = false;
+	const openHelpScreen = () => {
+		isHelpScreenOpen = true;
+	};
 
 	$: ({ status: normaalStatus, hintStr: normaalHintStr } =
 		checkIfTotVarKostenAreValid(elNormaalTotVarKosten));
@@ -59,6 +65,14 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
+	<span class="link" on:click={openHelpScreen}>Where to find <b>{sectionTitle}</b>?</span>
+	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
+		<CoolblueTarieven
+			isElTotVarKostNormTarActive={true}
+			isElTotVarKostDalTarActive={true}
+			isElTotVarKostEnkTarActive={true}
+		/>
+	</HelpScreen>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

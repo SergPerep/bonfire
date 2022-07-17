@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Table from './Table.svelte';
-	export let isTotVarKostEnkTarActive = false;
+	export let isElTotVarKostEnkTarActive = false;
 
 	const elVarKostenEnkelTarief = {
 		title: 'Variabele kosten enkeltarief',
@@ -25,7 +25,7 @@
 		total: {
 			name: 'Totale variabele kosten enkeltarief',
 			inclBTW: '0.234474',
-			isActive: isTotVarKostEnkTarActive
+			isActive: isElTotVarKostEnkTarActive
 		}
 	};
 

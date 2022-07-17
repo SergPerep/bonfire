@@ -72,6 +72,6 @@
 		background-color: colors.$black-a08;
 	}
 	table tr.active td{
-		background-color: colors.$success;
+		background-color: colors.$success-a40;
 	}
 </style>

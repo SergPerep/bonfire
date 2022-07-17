@@ -2,7 +2,7 @@
 @use "./sass-utils/fonts";
 @forward "./base/reset";
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap");
 
 body {
     font-family: "Roboto", sans-serif;
@@ -28,7 +28,21 @@ h2 {
     width: calc((100% - 24px) / 2);
 }
 
-a {
+a, .link {
     color: colors.$link-blue;
-    text-decoration: underline;
+    // text-decoration: underline;
+}
+
+.link {
+    cursor: pointer;
+}
+
+b {
+    font-family: "Roboto Mono", monospace;
+    background-color: colors.$black-a08;
+    padding: 0 8px;
+    margin: 0 2px;
+    border-radius: 2px;
+    line-height: 24px;
+    // color: colors.$success;
 }

@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-2"><Total /></div>
 	</div>
-	<HelpScreen />
+	<!-- <HelpScreen /> -->
 </main>
 
 <style lang="scss">
