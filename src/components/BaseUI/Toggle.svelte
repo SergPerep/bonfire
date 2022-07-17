@@ -14,7 +14,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 16px 0;
         cursor: pointer;
         p{
             @include fonts.body;
