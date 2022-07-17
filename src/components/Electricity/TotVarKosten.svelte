@@ -4,6 +4,7 @@
 	import { sections, getSectionTitle, getSectionStatus } from '../../stores/sections';
 	import HelpScreen from '../Help/HelpScreen.svelte';
 	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
+	import Link from "../BaseUI/Link.svelte";
 	export let isMeterkastSlim = false;
 	export let elEnkelTotVarKosten: kosten = null; /* 0.470799  €/kWh */
 	export let elNormaalTotVarKosten: kosten = null; /* 0.490280 €/kWh */
@@ -65,7 +66,7 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<p>Electricity rates that are charged by an energy supplier. <span class="link" on:click={openHelpScreen}>Where to find?</span>	</p>
+	<p>Electricity rates that are charged by an energy supplier. <Link onClick={openHelpScreen}>Where to find?</Link></p>
 	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
 		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
 		<p>Locate there <b>Totale variabele kosten</b> for electricity.</p> 
