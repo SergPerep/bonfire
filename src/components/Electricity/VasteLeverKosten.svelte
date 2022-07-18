@@ -2,10 +2,16 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import { sections, getSectionStatus, getSectionTitle } from '../../stores/sections';
+	import Link from "../BaseUI/Link.svelte";
+	import HelpScreen from '../Help/HelpScreen.svelte';
+import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 	export let elVasteLevKosten: kosten;
 
 	const id = 'el-vaste-leveringskosten';
 	const sectionTitle = getSectionTitle(id, $sections);
+
+	let isHelpScreenOpen = false;
+	const openHelpScreen = () => isHelpScreenOpen = true;
 	const checkIfElVastLevKostenAreValid = (
 		elVasteLevKosten: kosten
 	): {
@@ -33,7 +39,11 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<p>Fixed costs that are charged by an energy supplier for electricity. They are independent of your consumption and the same every month. </p>
+	<p>Fixed costs that are charged by an energy supplier for electricity. They are independent of your consumption and the same every month. <Link onClick={openHelpScreen}>Where to find?</Link> </p>
+	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
+		
+		<CoolblueTarieven isElVasLevKostActive={true} />
+	</HelpScreen>
 	<NumberInput
 		label="Elektriciteit vaste kosten"
 		suffix="€/maand"
