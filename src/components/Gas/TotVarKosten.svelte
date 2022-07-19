@@ -2,7 +2,13 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import {sections, getSectionStatus, getSectionTitle} from "../../stores/sections";
+	import Link from '../BaseUI/Link.svelte';
+	import HelpScreen from '../Help/HelpScreen.svelte';
+	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
+	
 	export let gasTotVarKosten: kosten; /* 0.490280 €/m³ */
+	
+	let isHelpScreenOpen = false;
 
 	const id = 'gas-totale-variabele-kosten';
 	const sectionTitle = getSectionTitle(id, $sections);
@@ -36,7 +42,10 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<p>Gas rates charged by an energy supplier.</p>
+	<p>Gas rates charged by an energy supplier.<Link onClick={() => isHelpScreenOpen = true}>Where to find?</Link></p>
+	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
+		<CoolblueTarieven isGasTotVarKostTarActive={true} />
+	</HelpScreen>
 	<NumberInput
 		label="Gas vaste kosten"
 		bind:value={gasTotVarKosten}

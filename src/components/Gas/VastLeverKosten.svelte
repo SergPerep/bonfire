@@ -2,7 +2,13 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import { sections, getSectionStatus, getSectionTitle } from '../../stores/sections';
+	import Link from '../BaseUI/Link.svelte';
+	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
+	import HelpScreen from '../Help/HelpScreen.svelte';
+
 	export let gasVasteLevKosten: kosten; /* 6.489956 €/maand */
+
+	let isHelpScreenOpen = false;
 
 	const id = 'gas-vaste-leveringskosten';
 	const sectionTitle = getSectionTitle(id, $sections);
@@ -36,7 +42,12 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<p>Fixed costs that atr charged by your energy supplier for gas. They are independent of your consumption and the same every month.</p>
+	<p>Fixed costs that atr charged by your energy supplier for gas. They are independent of your consumption and the same every month.
+		<Link onClick={() => isHelpScreenOpen = true}>Where to find?</Link>
+	</p>
+	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
+		<CoolblueTarieven isGasVasLevKostActive={true} />
+	</HelpScreen>
 	<NumberInput
 		label="Gas vaste kosten"
 		suffix="€/maand"

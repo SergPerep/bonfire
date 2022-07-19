@@ -41,7 +41,6 @@ import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 <Section title={sectionTitle} status={sectionStatus} {id}>
 	<p>Fixed costs that are charged by an energy supplier for electricity. They are independent of your consumption and the same every month. <Link onClick={openHelpScreen}>Where to find?</Link> </p>
 	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
-		
 		<CoolblueTarieven isElVasLevKostActive={true} />
 	</HelpScreen>
 	<NumberInput

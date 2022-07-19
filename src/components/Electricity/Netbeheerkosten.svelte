@@ -2,8 +2,14 @@
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import { sections, getSectionStatus, getSectionTitle } from '../../stores/sections';
+	import Link from '../BaseUI/Link.svelte';
+	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
+	import HelpScreen from '../Help/HelpScreen.svelte';
+
 	export let elNetbeheerKosten: kosten; /* 6.489956 €/maand */
 	const id = 'el-netbeheerkosten';
+	let isHelpScreenOpen = false;
+	const openHelpScreen = () => isHelpScreenOpen = true;
 
 	const checkIfNetbeheerkostenAreValid = (
 		elNetbeheerKosten: kosten
@@ -31,7 +37,10 @@
 </script>
 
 <Section {title} {id} status={sectionStatus}>
-	<p>Costs that are charged by a grid operator for connection and transport of electricity.</p>
+	<p>Costs that are charged by a grid operator for connection and transport of electricity. <Link onClick={openHelpScreen}>Where to find?</Link></p>
+	<HelpScreen title={`Where to find ${title}`} bind:isOpen={isHelpScreenOpen}>
+		<CoolblueTarieven isElNetBehKostActive={true}/>
+	</HelpScreen>
 	<NumberInput
 		label="Elektriciteit netbeheerkosten"
 		suffix="€/dag"
