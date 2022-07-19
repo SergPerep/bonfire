@@ -33,12 +33,12 @@
 	$: ({ status, hintStr } = checkIfNetbeheerkostenAreValid(elNetbeheerKosten));
 	$: sections.setStatus(id, status);
 	$: sectionStatus = getSectionStatus(id, $sections);
-	$: title = getSectionTitle(id, $sections);
+	$: sectionTitle = getSectionTitle(id, $sections);
 </script>
 
-<Section {title} {id} status={sectionStatus}>
+<Section title={sectionTitle} {id} status={sectionStatus}>
 	<p>Costs that are charged by a grid operator for connection and transport of electricity. <Link onClick={openHelpScreen}>Where to find?</Link></p>
-	<HelpScreen title={`Where to find ${title}`} bind:isOpen={isHelpScreenOpen}>
+	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
 		<CoolblueTarieven isElNetBehKostActive={true}/>
 	</HelpScreen>
 	<NumberInput
