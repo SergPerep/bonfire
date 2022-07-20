@@ -41,15 +41,17 @@
 <style lang="scss">
 	table {
 		width: 100%;
-		background: white;
 		border-collapse: collapse;
 		margin: 16px 0;
+		border-radius: 8px;
+		overflow: hidden;
 	}
 	th {
 		text-align: left;
-		background-color: colors.$black-a30;
-		// color: white;
+		background-color: black;
+		color: white;
 		padding: 6px 8px;
+		font-weight: normal;
 		&:not(:first-child) {
 			text-align: right;
 		}
@@ -60,9 +62,6 @@
 			text-align: right;
 		}
 	}
-	// tbody tr:nth-last-child(2) td {
-	// 	padding-bottom: 8px;
-	// }
 	.total td {
 		// padding-top: 4px;
 		border-top: 2px solid colors.$black-a12;
@@ -71,7 +70,7 @@
 	tbody tr:nth-child(2n) td {
 		background-color: colors.$black-a08;
 	}
-	table tr.active td{
+	table tr.active td {
 		background-color: colors.$success-a40;
 	}
 </style>

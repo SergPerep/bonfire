@@ -179,6 +179,7 @@
     }
 </script>
 
+<div>
 <h2>Tarieven elektriciteit</h2>
 <Table tableData={elVarKostenEnkelTarief} />
 <Table tableData={elVarKsotenNormaalTarief} />
@@ -188,4 +189,14 @@
 <h2>Tarieven gas</h2>
 <Table tableData={gasVarKosten} />
 <Table tableData={gasVasteKosten} />
+</div>
+
+<style lang="scss">
+	div{
+		border: 1px solid colors.$black-a12;
+		border-radius: 16px;
+		padding: 24px;
+		background-color: colors.$black-a04;
+	}
+</style>
 
