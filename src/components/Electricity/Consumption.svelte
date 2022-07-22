@@ -2,6 +2,7 @@
 	import InputNumber from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
 	import { getSectionTitle, sections, getSectionStatus } from '../../stores/sections';
+	
 	export let isMeterkastSlim = false;
 	export let elConsumptieEnkel: consumption = null; /* 911 kWh/jaar */
 	export let elConsumptieNormaal: consumption = null; /* 507  kWh/jaar */
@@ -60,6 +61,7 @@
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
 	<p>How much electricity you consume within a year.</p>
+	<p>You should have your own numbers. If you don't have any, visit <a href="https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/#:~:text=Een%20Nederlands%20huishouden%20verbruikt%20jaarlijks,zijn%20in%202022%20grote%20verschillen.">www.milieucentraal.nl</a> to find average numbers for a household similar to yours.</p>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

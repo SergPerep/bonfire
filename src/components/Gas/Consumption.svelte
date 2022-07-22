@@ -37,6 +37,7 @@
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
 	<p>How much gas you consume within a year.</p>
+	<p>You should have your own numbers. If you don't have any, visit <a href="https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/#:~:text=Een%20Nederlands%20huishouden%20verbruikt%20jaarlijks,zijn%20in%202022%20grote%20verschillen.">www.milieucentraal.nl</a> to find average numbers for a household similar to yours.</p>
 	<NumberInput
 		label="Consumption per jaar"
 		suffix="m³"
