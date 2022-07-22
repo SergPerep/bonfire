@@ -42,7 +42,7 @@ import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 	<p>Fixed costs that are charged by an energy supplier for electricity. They are independent of your consumption and the same every month. <Link onClick={openHelpScreen}>Where to find?</Link> </p>
 	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
 		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
-		<p>Locate there <b>Vaste leveringskosten</b> for electricity. Don't confuse them with <b>Vaste leveringskosten</b> for gas.</p> 
+		<p>Locate section about electricity and look for <b>Vaste leveringskosten</b> there. Don't confuse them with <b>Vaste leveringskosten</b> in gas section. They often have the same numbers, but not always</p> 
 		<CoolblueTarieven isElVasLevKostActive={true} />
 	</HelpScreen>
 	<NumberInput

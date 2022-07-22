@@ -46,6 +46,8 @@
 		<Link onClick={() => isHelpScreenOpen = true}>Where to find?</Link>
 	</p>
 	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
+		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
+		<p>Locate section about gas and look for <b>Vaste leveringskosten</b> there. Don't confuse them with <b>Vaste leveringskosten</b> in electricity section. They often have the same numbers, but not always</p> 
 		<CoolblueTarieven isGasVasLevKostActive={true} />
 	</HelpScreen>
 	<NumberInput

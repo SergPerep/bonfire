@@ -42,8 +42,10 @@
 </script>
 
 <Section title={sectionTitle} status={sectionStatus} {id}>
-	<p>Gas rates charged by an energy supplier.<Link onClick={() => isHelpScreenOpen = true}>Where to find?</Link></p>
+	<p>Gas rates charged by an energy supplier. <Link onClick={() => isHelpScreenOpen = true}>Where to find?</Link></p>
 	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
+		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
+		<p>Locate section about electricity and look for <b>Totale variabele kosten</b> there.</p>
 		<CoolblueTarieven isGasTotVarKostTarActive={true} />
 	</HelpScreen>
 	<NumberInput

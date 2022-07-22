@@ -39,6 +39,8 @@
 <Section title={sectionTitle} {id} status={sectionStatus}>
 	<p>Costs that are charged by a grid operator for connection and transport of electricity. <Link onClick={openHelpScreen}>Where to find?</Link></p>
 	<HelpScreen title={`Where to find ${sectionTitle}`} bind:isOpen={isHelpScreenOpen}>
+		<p>Find the document with energy rates (tarieven). Energy supplier should have sent it after you signed the contract. See an example below.</p>
+		<p>Locate section about electricity and look for <b>Netbeheerkosten</b> there. Don't confuse it with <b>Netbeheerkosten</b> for gas.</p>
 		<CoolblueTarieven isElNetBehKostActive={true}/>
 	</HelpScreen>
 	<NumberInput

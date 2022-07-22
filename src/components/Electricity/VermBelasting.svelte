@@ -28,6 +28,8 @@
 <Section title={sectionTitle} status={sectionStatus} {id}>
 	<p>Tax reduction for electricity. Different every year. <Link onClick={openHelpScreen}>Where to find?</Link></p>
 	<HelpScreen bind:isOpen={isHelpScreenOpen} title={`Where to find ${sectionTitle}`}>
+		<p>The Goverment sets tax reduction for electricity every year. But it still can be tricky to find and calculate.</p>
+		<p>The most reliable way still is to look into the document with rates, that you get after you signed up contract with energy supplier, and locate <b>Vermindering energiebelasting</b> there.</p>
 		<CoolblueTarieven isElVermEnrgBelastActive={true} />
 	</HelpScreen>
 	<Select
