@@ -56,5 +56,6 @@
 		bind:value={gasVasteLevKosten}
 		{status}
 		{hintStr}
+		placeholder="e.g. 6.489956"
 	/>
 </Section>

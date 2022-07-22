@@ -54,5 +54,6 @@
 		bind:value={gasNetbeheerKosten}
 		{status}
 		{hintStr}
+		placeholder="e.g. 0.512435"
 	/>
 </Section>

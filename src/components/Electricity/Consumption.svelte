@@ -71,6 +71,7 @@
 					bind:value={elConsumptieNormaal}
 					status={normaalStatus}
 					hintStr={normaalHintStr}
+					placeholder="e.g. 507"
 				/>
 			</div>
 			<div class="col-2">
@@ -80,6 +81,7 @@
 					bind:value={elConsumptieDal}
 					status={dalStatus}
 					hintStr={dalHintStr}
+					placeholder="e.g. 402"
 				/>
 			</div>
 		</div>
@@ -90,6 +92,7 @@
 			bind:value={elConsumptieEnkel}
 			status={enkelStatus}
 			hintStr={enkelHintStr}
+			placeholder="e.g. 911"
 		/>
 	{/if}
 </Section>

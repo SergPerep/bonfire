@@ -49,5 +49,6 @@
 		bind:value={elNetbeheerKosten}
 		{status}
 		{hintStr}
+		placeholder="e.g. 0.696597"
 	/>
 </Section>

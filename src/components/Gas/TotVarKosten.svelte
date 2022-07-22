@@ -54,5 +54,6 @@
 		suffix="kWh/m³"
 		{status}
 		{hintStr}
+		placeholder="e.g. 1.927312"
 	/>
 </Section>

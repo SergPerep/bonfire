@@ -44,5 +44,6 @@
 		bind:value={gasConsumptie}
 		{status}
 		{hintStr}
+		placeholder="e.g. 1200"
 	/>
 </Section>

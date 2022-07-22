@@ -51,5 +51,6 @@ import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 		bind:value={elVasteLevKosten}
 		{status}
 		{hintStr}
+		placeholder="e.g. 6.489956"
 	/>
 </Section>

@@ -86,6 +86,7 @@
 					bind:value={elNormaalTotVarKosten}
 					status={normaalStatus}
 					hintStr={normaalHintStr}
+					placeholder="e.g 0.490280"
 				/>
 			</div>
 			<div class="col-2">
@@ -95,6 +96,7 @@
 					bind:value={elDalTotVarKosten}
 					status={dalStatus}
 					hintStr={dalHintStr}
+					placeholder="e.g 0.445389"
 				/>
 			</div>
 		</div>
@@ -105,6 +107,7 @@
 			bind:value={elEnkelTotVarKosten}
 			status={enkelStatus}
 			hintStr={enkelHintStr}
+			placeholder="e.g. 0.470799"
 		/>
 	{/if}
 </Section>
