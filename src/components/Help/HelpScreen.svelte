@@ -11,7 +11,7 @@
 		<div class="popup" on:click|stopPropagation>
 			<header>
 				<h2>{title}</h2>
-				<div class="icon" on:click={handleClickClose}><span class="material-symbols-outlined"> close </span></div>
+				<div class="icon" on:click={handleClickClose}><span class="material-symbols-outlined solid-icon"> close </span></div>
 			</header>
 			<div class="body">
 				<slot></slot>

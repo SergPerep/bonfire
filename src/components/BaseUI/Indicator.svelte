@@ -1,5 +1,5 @@
 <div class="indicator">
-    <span class="material-symbols-outlined">
+    <span class="material-symbols-outlined solid-icon">
         check_circle
     </span>
 </div>

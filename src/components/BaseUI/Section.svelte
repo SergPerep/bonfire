@@ -7,9 +7,9 @@
 <section class:error={status === "error"} class:success={status === "success"} {id}>
 	<header>
 		{#if status === 'success'}
-			<span class="material-symbols-outlined icon-check"> check_circle </span>
+			<span class="material-symbols-outlined solid-icon icon-check"> check_circle </span>
 		{:else if status === 'error'}
-			<span class="material-symbols-outlined icon-error"> error </span>
+			<span class="material-symbols-outlined solid-icon icon-error"> error </span>
 		{/if}
 		<h2>{title}</h2>
 	</header>

@@ -40,9 +40,9 @@
 				<div class="list">
 					<div class="icon" class:success={section.status === 'success'}>
 						{#if section.status === 'success'}
-							<span class="material-symbols-outlined"> check_small </span>
+							<span class="material-symbols-outlined line-icon"> check_circle</span>
 						{:else}
-							<span class="material-symbols-outlined"> check_indeterminate_small </span>
+							<span class="material-symbols-outlined line-icon"> cancel </span>
 						{/if}
 					</div>
 					<span class="desc">

@@ -23,7 +23,7 @@
 		<div class="appendix">
 			{#if suffix} <span class="suffix">{suffix}</span> {/if}
 			<div class="arrow-icon">
-				<span class="material-symbols-outlined"> arrow_drop_down </span>
+				<span class="material-symbols-outlined solid-icon"> arrow_drop_down </span>
 			</div>
 		</div>
 	</div>
