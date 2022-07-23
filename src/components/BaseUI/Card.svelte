@@ -6,6 +6,7 @@
 	$: cardStatus = sectionList.reduce((prevVal, curVal) => {
 		return prevVal && curVal.status === 'success';
 	}, true);
+	export let footerTitle = "Totaal";
 </script>
 
 <section class="card">
@@ -16,7 +17,7 @@
 		<slot />
 	</div>
 	<div class="footer">
-		<h2>Totaal Elektriciteit kosten</h2>
+		<h2>{footerTitle}</h2>
 		{#if cardStatus}
 			<div class="container">
 				<div class="col">

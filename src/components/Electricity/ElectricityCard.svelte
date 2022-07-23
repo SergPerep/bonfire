@@ -57,7 +57,7 @@
 	}
 </script>
 
-<Card title="⚡️ Elektriciteit" kostenPerJaar={$elKostenPerJaar} {sectionList}>
+<Card title="⚡️ Elektriciteit" kostenPerJaar={$elKostenPerJaar} {sectionList} footerTitle="Totaal electreciteit kosten">
 	<Toggle text="Slim meterkast" isChecked={isMeterkastSlim} on:click={toggleIsMeterkastSlim} />
 	<Consumption
 		{isMeterkastSlim}

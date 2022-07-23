@@ -26,7 +26,7 @@
 	$: sectionList = $sections.filter((section) => section.group === 'gas');
 </script>
 
-<Card title="🔥 Gas" kostenPerJaar={$gasKostenPerJaar} {sectionList}>
+<Card title="🔥 Gas" kostenPerJaar={$gasKostenPerJaar} {sectionList} footerTitle="Totaal gas kosten">
 	<Toggle text="Household uses gas" isChecked={hasGas} on:click={toggleHasGas} />
 	<Consumption bind:gasConsumptie />
 	<TotVarKosten bind:gasTotVarKosten />
