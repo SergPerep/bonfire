@@ -1,11 +1,10 @@
 <script lang="ts">
-
 	export let title = 'Card title';
 	export let kostenPerJaar: number | null = 0;
 	$: kostenPerMaand = kostenPerJaar ? kostenPerJaar / 12 : null;
 	export let sectionList: Sections = [];
 	$: cardStatus = sectionList.reduce((prevVal, curVal) => {
-		return prevVal && (curVal.status === "success");
+		return prevVal && curVal.status === 'success';
 	}, true);
 </script>
 
@@ -17,7 +16,7 @@
 		<slot />
 	</div>
 	<div class="footer">
-		<h3>Totaal Elektriciteit kosten</h3>
+		<h2>Totaal Elektriciteit kosten</h2>
 		{#if cardStatus}
 			<div class="container">
 				<div class="col">
@@ -37,23 +36,15 @@
 			</div>
 		{:else}
 			{#each sectionList as section (section.title)}
-				<div class="list">
-					<div class="icon" class:success={section.status === 'success'}>
+				<div class="checklist__item" class:success={section.status === 'success'}>
+					<div class="icon">
 						{#if section.status === 'success'}
 							<span class="material-symbols-outlined line-icon"> check_circle</span>
 						{:else}
 							<span class="material-symbols-outlined line-icon"> cancel </span>
 						{/if}
 					</div>
-					<span class="desc">
-						{#if section.status === 'error'}
-							Fill <a href={"#" + section.id}>{section.title}</a> correctly
-						{:else if section.status === 'success'}
-							<a href={"#" + section.id}>{section.title}</a>
-						{:else}
-							Please fill <a href={"#" + section.id}>{section.title}</a>
-						{/if}
-					</span>
+					<a href={'#' + section.id}>{section.title}</a>
 				</div>
 			{/each}
 		{/if}
@@ -75,16 +66,17 @@
 		border-radius: 16px 16px 0 0;
 		border-bottom: 1px solid colors.$black-a12;
 	}
-	h2 {
+	.header h2 {
 		font-size: 36px;
 		line-height: 48px;
 	}
-	h3 {
-		margin-bottom: 16px;
-	}
+
 	.footer {
 		padding: 24px;
 		border-top: 1px solid colors.$black-a12;
+		h2 {
+			margin-bottom: 16px;
+		}
 	}
 	.container {
 		display: flex;
@@ -105,23 +97,36 @@
 		}
 	}
 
-	.list {
+	.checklist__item {
 		display: flex;
-		justify-content: space-between;
-		.desc {
-			width: calc(100% - 24px - 4px);
-		}
-	}
-
-	.icon {
-		width: 24px;
-		height: 24px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		color: colors.$error;
+		margin-bottom: 4px;
+		.icon {
+			width: 24px;
+			height: 24px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		a {
+			margin-left: 8px;
+			@include fonts.body;
+			transition: color ease-in-out 0.2s;
+			font-weight: 500;
+			margin-top: 1px;
+			color: colors.$error;
+			&:hover {
+				color: colors.$error-dark;
+			}
+		}
 		&.success {
 			color: colors.$success;
+			a {
+				color: colors.$success;
+				&:hover {
+					color: colors.$success-dark;
+				}
+			}
 		}
 	}
 </style>
