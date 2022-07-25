@@ -23,7 +23,7 @@
 		gasVasteLevKosten,
 		gasNetbeheerKosten
 	);
-	$: sectionList = $sections.filter((section) => section.group === 'gas');
+	$: sectionList = $sections.filter((section) => section.energyType === 'gas');
 </script>
 
 <Card title="🔥 Gas" kostenPerJaar={$gasKostenPerJaar} {sectionList} footerTitle="Totaal gas kosten">

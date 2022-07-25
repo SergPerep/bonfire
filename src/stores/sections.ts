@@ -5,55 +5,55 @@ function createSections() {
         id: 'el-consumption',
         title: 'Consumption',
         status: null,
-        group: "el"
+        energyType: "el"
     },
     {
         id: 'el-totale-variabele-kosten',
         title: 'Totale variabele kosten',
         status: null,
-        group: "el"
+        energyType: "el"
     },
     {
         id: 'el-vaste-leveringskosten',
         title: 'Vaste leveringskosten',
         status: null,
-        group: "el"
+        energyType: "el"
     },
     {
         id: 'el-vermindering-energiebelasting',
         title: "Vermindering energiebelasting",
         status: "success",
-        group: "el"
+        energyType: "el"
     },
     {
         id: 'el-netbeheerkosten',
         title: 'Netbeheerkosten',
         status: null,
-        group: "el"
+        energyType: "el"
     },
     {
         id: 'gas-consumption',
         title: 'Consumption',
         status: null,
-        group: "gas"
+        energyType: "gas"
     },
     {
         id: 'gas-totale-variabele-kosten',
         title: 'Totale variabele kosten',
         status: null,
-        group: "gas"
+        energyType: "gas"
     },
     {
         id: 'gas-vaste-leveringskosten',
         title: 'Vaste leveringskosten',
         status: null,
-        group: "gas"
+        energyType: "gas"
     },
     {
         id: 'gas-netbeheerkosten',
         title: 'Netbeheerkosten',
         status: null,
-        group: "gas"
+        energyType: "gas"
     }
     ]);
     const { subscribe, set, update } = sections;
@@ -89,15 +89,15 @@ export const getSectionStatus = (id: string, sections: Sections) => {
     return status;
 }
 
-// Returns a ratio of successfully filled sections for specified group (electricity or gas)
-export const getSectionsFillingProgress = (sections: Sections, groupName: "el" | "gas") => {
+// Returns a ratio of successfully filled sections for specified energyType (electricity or gas)
+export const getSectionsFillingProgress = (sections: Sections, energyType: "el" | "gas") => {
     const filledSectionsNum = sections
-        .filter((section) => section.group === groupName)
+        .filter((section) => section.energyType === energyType)
         .reduce((prevVal, curVal) => {
             if (curVal.status === 'success') return prevVal + 1;
             return prevVal;
         }, 0);
-    const totalSectionsNum = sections.filter((section) => section.group === groupName).length;
+    const totalSectionsNum = sections.filter((section) => section.energyType === energyType).length;
     return filledSectionsNum / totalSectionsNum;
 }
 

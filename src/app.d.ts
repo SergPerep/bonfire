@@ -11,7 +11,7 @@ type Section = {
     id: string,
     title: string,
     status: Status,
-    group: "el" | "gas"
+    energyType: "el" | "gas"
 };
 type Sections = Section[];
 

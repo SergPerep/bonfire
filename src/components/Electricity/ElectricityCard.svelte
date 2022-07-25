@@ -39,7 +39,7 @@
 		elNetbeheerKosten
 	});
 
-	$: sectionList = $sections.filter((section) => section.group === 'el');
+	$: sectionList = $sections.filter((section) => section.energyType === 'el');
 
 	$: {
 		// console.log({
