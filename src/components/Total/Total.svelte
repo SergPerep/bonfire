@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { gasKostenPerJaar, elKostenPerJaar } from '../../stores/kostenPerJaar';
+	import ProgressCircleIndicator from '../BaseUI/ProgressCircleIndicator.svelte';
+	import { sections, getSectionsFillingProgress } from '../../stores/sections';
 	$: gasKostenPerMonth = $gasKostenPerJaar ? $gasKostenPerJaar / 12 : null;
 	$: elKostenPerMonth = $elKostenPerJaar ? $elKostenPerJaar / 12 : null;
 	$: totalKostenPerJaar =
@@ -12,6 +14,10 @@
 		if (isNegative) return '-€' + Math.abs(amount).toFixed(digitsAfterPoint);
 		return '€' + amount.toFixed(digitsAfterPoint);
 	};
+
+	$: elFillingProgress = getSectionsFillingProgress($sections, "el");
+	$: gasFillingProgress = getSectionsFillingProgress($sections, "gas")
+	
 </script>
 
 <div class="total">
@@ -29,12 +35,20 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>⚡️ Elektriciteit</td>
+					<td
+						><div class="energy-type">
+							<ProgressCircleIndicator progress={elFillingProgress} /><span>Elektriciteit</span>
+						</div></td
+					>
 					<td>{formatPriceToString($elKostenPerJaar)}</td>
 					<td>{formatPriceToString(elKostenPerMonth)}</td>
 				</tr>
 				<tr>
-					<td>🔥 Gas</td>
+					<td
+						><div class="energy-type">
+							<ProgressCircleIndicator progress={gasFillingProgress} /><span>Gas</span>
+						</div></td
+					>
 					<td>{formatPriceToString($gasKostenPerJaar)}</td>
 					<td>{formatPriceToString(gasKostenPerMonth)}</td>
 				</tr>
@@ -54,11 +68,17 @@
 </div>
 
 <style lang="scss">
+	.energy-type {
+		display: flex;
+		span {
+			padding: 1px 0 0 4px;
+		}
+	}
 	.total {
 		background-color: white;
 		border-radius: 12px;
-        position: fixed;
-        top: 40px;
+		position: fixed;
+		top: 40px;
 	}
 	header {
 		padding: 24px 24px 4px;
@@ -73,6 +93,7 @@
 		th,
 		td {
 			padding: 10px 18px;
+			@include fonts.small;
 		}
 		thead th {
 			border-bottom: 1px solid colors.$black-a12;

@@ -89,4 +89,16 @@ export const getSectionStatus = (id: string, sections: Sections) => {
     return status;
 }
 
+// Returns a ratio of successfully filled sections for specified group (electricity or gas)
+export const getSectionsFillingProgress = (sections: Sections, groupName: "el" | "gas") => {
+    const filledSectionsNum = sections
+        .filter((section) => section.group === groupName)
+        .reduce((prevVal, curVal) => {
+            if (curVal.status === 'success') return prevVal + 1;
+            return prevVal;
+        }, 0);
+    const totalSectionsNum = sections.filter((section) => section.group === groupName).length;
+    return filledSectionsNum / totalSectionsNum;
+}
+
 export const sections = createSections();
