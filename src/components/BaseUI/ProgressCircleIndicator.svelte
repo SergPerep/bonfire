@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	/* ===== SET UP Params ===== */
-	export let progress = 0.6; // represents percent of a progress: from 0 to
+	export let progress: number; // represents percent of a progress: from 0 to 1
 	const circleWidth = 20;
-	const barWidth = 2;
+	const barWidth = 2.5;
 
 	/* ===== CALCULATIONS ===== */
 	const circleRadius = circleWidth / 2 - barWidth / 2;
@@ -38,6 +38,6 @@
 	.bar {
 		stroke: colors.$success;
 		transform: rotate(-90deg);
-		transition: stroke-dasharray ease-in-out 0.2s;
+		transition: stroke-dasharray ease-in-out 1s;
 	}
 </style>
