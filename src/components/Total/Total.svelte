@@ -44,7 +44,7 @@
 					<td>{formatPriceToString($gasKostenPerJaar)}</td>
 					<td>{formatPriceToString(gasKostenPerMonth)}</td>
 				</tr>
-				<tr class="footer">
+				<tr class="footer" class:empty={!totalKostenPerJaar}>
 					<td>Total</td>
 					<td>{formatPriceToString(totalKostenPerJaar)}</td>
 					<td>{formatPriceToString(totalKostenPerMonth)}</td>
@@ -105,5 +105,9 @@
 	}
 	tr:not(.footer).is-positive td:not(:first-child) {
 		color: colors.$error;
+	}
+
+	tr.footer.empty td:not(:first-child){
+		color: colors.$black-a30;
 	}
 </style>
