@@ -9,15 +9,14 @@
 	$: totalKostenPerMonth = totalKostenPerJaar ? totalKostenPerJaar / 12 : null;
 
 	const formatPriceToString = (amount: number | null, digitsAfterPoint: number = 2) => {
-		if (!amount) return '';
+		if (!amount) return '-';
 		const isNegative = amount < 0;
-		if (isNegative) return '-€' + Math.abs(amount).toFixed(digitsAfterPoint);
+		if (isNegative) return '- €' + Math.abs(amount).toFixed(digitsAfterPoint);
 		return '€' + amount.toFixed(digitsAfterPoint);
 	};
 
-	$: elFillingProgress = getSectionsFillingProgress($sections, "el");
-	$: gasFillingProgress = getSectionsFillingProgress($sections, "gas")
-	
+	$: elFillingProgress = getSectionsFillingProgress($sections, 'el');
+	$: gasFillingProgress = getSectionsFillingProgress($sections, 'gas');
 </script>
 
 <div class="total">
@@ -28,13 +27,13 @@
 		<table>
 			<thead>
 				<tr>
-					<th />
+					<th>Energy type</th>
 					<th>per year</th>
 					<th>per month</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr class:empty={!$elKostenPerJaar} class:is-positive={$elKostenPerJaar ? $elKostenPerJaar >= 0 : false}>
 					<td
 						><div class="energy-type">
 							<ProgressCircleIndicator progress={elFillingProgress} /><span>Elektriciteit</span>
@@ -43,33 +42,28 @@
 					<td>{formatPriceToString($elKostenPerJaar)}</td>
 					<td>{formatPriceToString(elKostenPerMonth)}</td>
 				</tr>
-				<tr>
-					<td
-						><div class="energy-type">
+				<tr class:empty={!$gasKostenPerJaar} class:is-positive={$gasKostenPerJaar ? $gasKostenPerJaar >= 0 : false}>
+					<td><div class="energy-type">
 							<ProgressCircleIndicator progress={gasFillingProgress} /><span>Gas</span>
 						</div></td
 					>
 					<td>{formatPriceToString($gasKostenPerJaar)}</td>
 					<td>{formatPriceToString(gasKostenPerMonth)}</td>
 				</tr>
+				<tr class="footer">
+					<td>Total</td>
+					<td>{formatPriceToString(totalKostenPerJaar)}</td>
+					<td>{formatPriceToString(totalKostenPerMonth)}</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
-	<footer>
-		<div class="year">
-			<span class="number">{formatPriceToString(totalKostenPerJaar, 0)}</span>
-			<span class="unit">€/jaar</span>
-		</div>
-		<div class="month">
-			<span class="number">{formatPriceToString(totalKostenPerMonth)}</span>
-			<span class="unit">€/maand</span>
-		</div>
-	</footer>
 </div>
 
 <style lang="scss">
 	.energy-type {
 		display: flex;
+		font-weight: bold;
 		span {
 			padding: 1px 0 0 4px;
 		}
@@ -79,55 +73,50 @@
 		border-radius: 12px;
 		position: fixed;
 		top: 40px;
+		padding-bottom: 4px;
 	}
 	header {
-		padding: 24px 24px 4px;
-		border-bottom: 1px solid colors.$black-a12;
+		padding: 24px 16px 4px;
 		h2 {
 			@include fonts.h3;
+			margin-bottom: 0;
 		}
 	}
 	table {
 		border-collapse: collapse;
 		width: 100%;
-		th,
-		td {
-			padding: 10px 18px;
-			@include fonts.small;
+	}
+	th,
+	td {
+		padding: 10px 16px;
+		@include fonts.small;
+	}
+	thead th {
+		border-bottom: 1px solid colors.$black-a12;
+		color: colors.$black-a30;
+		&:first-child{
+			text-align: left;
 		}
-		thead th {
-			border-bottom: 1px solid colors.$black-a12;
-			color: colors.$black-a30;
-			&:not(:first-child) {
-				text-align: right;
-			}
-		}
-		tbody td:not(:first-child) {
+		&:not(:first-child) {
 			text-align: right;
 		}
 	}
-	footer {
-		padding: 24px;
+	tbody td:not(:first-child) {
+		text-align: right;
+	}
+	tr.footer {
 		border-top: 1px solid colors.$black-a12;
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-	}
-	.year {
-		width: calc((100% - 24px) / 2);
-		.number {
-			@include fonts.h2;
-		}
-	}
-	.month {
-		width: calc((100% - 24px) / 2);
-		.number {
-			@include fonts.h3;
-		}
+		font-weight: bold;
 	}
 
-	.unit {
-		@include fonts.small;
-		font-weight: bold;
+	// Color data cells
+	tr:not(.footer) td:not(:first-child) {
+		color: colors.$success;
+	}
+	tr:not(.footer).empty td:not(:first-child){
+		color: colors.$black-a12;
+	}
+	tr:not(.footer).is-positive td:not(:first-child) {
+		color: colors.$error;
 	}
 </style>
