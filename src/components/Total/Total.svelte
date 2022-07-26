@@ -2,6 +2,7 @@
 	import { gasKostenPerJaar, elKostenPerJaar } from '../../stores/kostenPerJaar';
 	import ProgressCircleIndicator from '../BaseUI/ProgressCircleIndicator.svelte';
 	import { sections, getSectionsFillingProgress } from '../../stores/sections';
+	import EnergyTypeCell from "./EnergyTypeCell.svelte";
 	$: gasKostenPerMonth = $gasKostenPerJaar ? $gasKostenPerJaar / 12 : null;
 	$: elKostenPerMonth = $elKostenPerJaar ? $elKostenPerJaar / 12 : null;
 	$: totalKostenPerJaar =
@@ -9,7 +10,7 @@
 	$: totalKostenPerMonth = totalKostenPerJaar ? totalKostenPerJaar / 12 : null;
 
 	const formatPriceToString = (amount: number | null, digitsAfterPoint: number = 2) => {
-		if (!amount) return '-';
+		if (!amount) return '–';
 		const isNegative = amount < 0;
 		if (isNegative) return '- €' + Math.abs(amount).toFixed(digitsAfterPoint);
 		return '€' + amount.toFixed(digitsAfterPoint);
@@ -34,19 +35,12 @@
 			</thead>
 			<tbody>
 				<tr class:empty={!$elKostenPerJaar} class:is-positive={$elKostenPerJaar ? $elKostenPerJaar >= 0 : false}>
-					<td
-						><div class="energy-type">
-							<ProgressCircleIndicator progress={elFillingProgress} /><span>Elektriciteit</span>
-						</div></td
-					>
+					<td><EnergyTypeCell fillingProgress={elFillingProgress} title="Elektriciteit"/></td>
 					<td>{formatPriceToString($elKostenPerJaar)}</td>
 					<td>{formatPriceToString(elKostenPerMonth)}</td>
 				</tr>
 				<tr class:empty={!$gasKostenPerJaar} class:is-positive={$gasKostenPerJaar ? $gasKostenPerJaar >= 0 : false}>
-					<td><div class="energy-type">
-							<ProgressCircleIndicator progress={gasFillingProgress} /><span>Gas</span>
-						</div></td
-					>
+					<td><EnergyTypeCell fillingProgress={gasFillingProgress} title="Gas"/></td>
 					<td>{formatPriceToString($gasKostenPerJaar)}</td>
 					<td>{formatPriceToString(gasKostenPerMonth)}</td>
 				</tr>
@@ -61,13 +55,6 @@
 </div>
 
 <style lang="scss">
-	.energy-type {
-		display: flex;
-		font-weight: bold;
-		span {
-			padding: 1px 0 0 4px;
-		}
-	}
 	.total {
 		background-color: white;
 		border-radius: 12px;
@@ -109,12 +96,12 @@
 		font-weight: bold;
 	}
 
-	// Color data cells
+	// Color of data cells
 	tr:not(.footer) td:not(:first-child) {
 		color: colors.$success;
 	}
 	tr:not(.footer).empty td:not(:first-child){
-		color: colors.$black-a12;
+		color: colors.$black-a30;
 	}
 	tr:not(.footer).is-positive td:not(:first-child) {
 		color: colors.$error;
