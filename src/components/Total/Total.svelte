@@ -58,12 +58,12 @@
 	.total {
 		background-color: white;
 		border-radius: 12px;
-		position: fixed;
+		position: sticky;
 		top: 40px;
 		padding-bottom: 4px;
 	}
 	header {
-		padding: 24px 16px 4px;
+		padding: 24px 24px 4px;
 		h2 {
 			@include fonts.h3;
 			margin-bottom: 0;
@@ -75,8 +75,14 @@
 	}
 	th,
 	td {
-		padding: 10px 16px;
 		@include fonts.small;
+		padding: 10px 16px;
+		&:first-child{
+			padding-left: 24px;
+		}
+		&:last-child{
+			padding-right: 24px;
+		}
 	}
 	thead th {
 		border-bottom: 1px solid colors.$black-a12;
