@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { gasKostenPerJaar, elKostenPerJaar } from '../../stores/kostenPerJaar';
-	import ProgressCircleIndicator from '../BaseUI/ProgressCircleIndicator.svelte';
 	import { sections, getSectionsFillingProgress } from '../../stores/sections';
 	import EnergyTypeCell from "./EnergyTypeCell.svelte";
 	$: gasKostenPerMonth = $gasKostenPerJaar ? $gasKostenPerJaar / 12 : null;
