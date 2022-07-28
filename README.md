@@ -1,6 +1,6 @@
 # 🔥 Bonfire
 
-Energy cost calculator for housing in the Netherlands.
+Energy cost calculator for housing in the Netherlands. It gives you a rough estimate of your annual/monthly expenses based on energy supplier's and net provider's rates and your gas and electricity consumption.
 
 - [Deployed demo](https://gas-burner.herokuapp.com/)
 - [Math behind the calculator](./docs/math.md)
