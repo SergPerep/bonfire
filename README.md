@@ -4,7 +4,7 @@ Energy cost calculator for housing in the Netherlands. It gives you a rough esti
 
 - [Deployed demo](https://srgprp-bonfire.herokuapp.com/)
 - [Math behind the calculator](./docs/math.md)
-- Want to install and test? Follow this guide
+- Want to install and test? Clone the repo, then `npm install` and then `npm run dev`.
 
 ![cover](./docs/img/cover.png)
 ## Why
