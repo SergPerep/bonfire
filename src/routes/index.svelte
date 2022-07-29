@@ -3,8 +3,10 @@
 	import ElectricityCard from '../components/Electricity/ElectricityCard.svelte';
 	import GasCard from '../components/Gas/GasCard.svelte';
 	import Total from '../components/Total/Total.svelte';
+	import Nav from '../components/Nav.svelte';
 </script>
 
+<Nav />
 <main>
 	<div class="main-container">
 		<div class="col-1">
@@ -16,11 +18,8 @@
 </main>
 
 <style lang="scss">
-	.main-container {
-		width: 1100px;
-		margin: 40px auto;
-		display: flex;
-		justify-content: space-between;
+	main {
+		margin: 40px 0;
 	}
 	.col-1 {
 		width: calc(65% - 12px);
