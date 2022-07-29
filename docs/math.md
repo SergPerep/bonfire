@@ -22,7 +22,7 @@ For this example I'm going to use my own data for 2021 year.
 
 You receive this document after you sign a contract with energy supplier. You can find it in your emails or in your personal account on website of your energy provider. It might look like this:
 
-![Coolblue_Minder_Energie_2021](coolblue_minder_energie_2021.png)
+![Coolblue_Minder_Energie_2021](./img/coolblue_minder_energie_2021.png)
 
 To calculate **electricity expenses** we going to use values highlighted with **green**. To calculate **gas expenses** we going to use values highlighted with **orange**.
 
