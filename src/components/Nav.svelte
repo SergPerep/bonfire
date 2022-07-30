@@ -36,9 +36,6 @@
 </nav>
 
 <style lang="scss">
-	nav {
-		background-color: white;
-	}
 	img {
 		width: 100px;
 	}

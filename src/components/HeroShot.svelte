@@ -20,8 +20,7 @@
 		justify-content: space-between;
 	}
 	.hero-shot {
-		padding: 40px 0;
-		background: linear-gradient(white, rgba(255, 255, 255, 0));
+		padding: 50px 0 30px;
 	}
 	.desc-col {
 		width: 60%;
