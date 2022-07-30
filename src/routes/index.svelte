@@ -4,9 +4,11 @@
 	import GasCard from '../components/Gas/GasCard.svelte';
 	import Total from '../components/Total/Total.svelte';
 	import Nav from '../components/Nav.svelte';
+import HeroShot from '../components/HeroShot.svelte';
 </script>
 
 <Nav />
+<HeroShot />
 <main>
 	<div class="main-container">
 		<div class="col-1">
