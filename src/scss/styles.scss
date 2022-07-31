@@ -1,5 +1,6 @@
 @use "./sass-utils/colors";
 @use "./sass-utils/fonts";
+@forward "./base/icons";
 @forward "./base/reset";
 @forward "./base/layout";
 
