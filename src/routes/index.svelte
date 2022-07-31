@@ -5,10 +5,12 @@
 	import Total from '../components/Total/Total.svelte';
 	import Nav from '../components/Nav.svelte';
 import HeroShot from '../components/HeroShot.svelte';
+import DeveloperBar from '../components/DeveloperBar/DeveloperBar.svelte';
 </script>
 
 <Nav />
 <HeroShot />
+<DeveloperBar />
 <main>
 	<div class="main-container">
 		<div class="col-1">
