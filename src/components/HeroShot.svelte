@@ -20,7 +20,7 @@
 		justify-content: space-between;
 	}
 	.hero-shot {
-		padding: 50px 0 30px;
+		padding: 100px 0 30px;
 	}
 	.desc-col {
 		width: 60%;
