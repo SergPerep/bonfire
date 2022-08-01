@@ -11,15 +11,6 @@ body {
     background-color: colors.$soft-sand;
 }
 
-.material-symbols-outlined {
-    &.line-icon {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-    }
-    &.solid-icon {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-    }
-}
-
 h2 {
     font-size: 18px;
     line-height: 24px;
@@ -37,7 +28,6 @@ h2 {
 a,
 .link {
     color: colors.$link-blue;
-    // text-decoration: underline;
 }
 
 .link {

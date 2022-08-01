@@ -1,3 +1,16 @@
+/* ===== MATERIAL DESIGN ICONS ===== */
+
+.material-symbols-outlined {
+  &.line-icon {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+  &.solid-icon {
+      font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+}
+
+/* ===== CUSTOM FONT ===== */
+
 @font-face {
   font-family: 'socials';
   src:  url('src/fonts/socials.eot?a1weha');
