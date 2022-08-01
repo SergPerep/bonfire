@@ -7,9 +7,9 @@
 <section class:error={status === "error"} class:success={status === "success"} {id}>
 	<header>
 		{#if status === 'success'}
-			<span class="material-symbols-outlined solid-icon icon-check"> check_circle </span>
+			<span class="material-symbols-outlined solid-icon check"> check_circle </span>
 		{:else if status === 'error'}
-			<span class="material-symbols-outlined solid-icon icon-error"> error </span>
+			<span class="material-symbols-outlined solid-icon error"> error </span>
 		{/if}
 		<h2>{title}</h2>
 	</header>
@@ -30,14 +30,14 @@
 			margin-bottom: 0;
 		}
 	}
-	.icon-check,
-	.icon-error {
+	.check,
+	.error {
 		margin-right: 8px;
 	}
-	.icon-check {
+	.check {
 		color: colors.$success;
 	}
-	.icon-error {
+	.error {
 		color: colors.$error;
 	}
 </style>
