@@ -3,7 +3,8 @@ import preprocess from 'svelte-preprocess';
 
 const sassColors = `@use './src/scss/sass-utils/colors.scss';`;
 const sassFonts = `@use './src/scss/sass-utils/fonts.scss';`;
-const sassString = sassColors + sassFonts;
+const sassVendors = `@use './src/scss/sass-utils/vendors.scss' as *;`;
+const sassString = sassColors + sassFonts + sassVendors;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

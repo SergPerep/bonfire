@@ -58,7 +58,7 @@
 		background-color: white;
 		border-radius: 12px;
 		position: sticky;
-		top: 40px;
+		top: 70px;
 		padding-bottom: 4px;
 	}
 	header {

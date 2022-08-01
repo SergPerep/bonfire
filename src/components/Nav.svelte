@@ -36,6 +36,15 @@
 </nav>
 
 <style lang="scss">
+	nav{
+		background-color: rgba(colors.$soft-sand, .6);
+		@include backdrop-filter(blur(10px));
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 3;
+	}
 	img {
 		width: 100px;
 	}

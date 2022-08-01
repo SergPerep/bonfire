@@ -28,9 +28,10 @@
 	$developerBarHeight: 36px;
 
 	.devbar {
+		background-color: rgba(colors.$soft-sand, 0.5);
+		@include backdrop-filter(blur(10px));
 		width: 100%;
 		height: $developerBarHeight;
-		background-color: white;
 		border-top: 1px solid colors.$white-a12;
 		display: flex;
 		align-items: stretch;
