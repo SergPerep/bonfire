@@ -1,14 +1,9 @@
 <script lang="ts">
 	const buttonList = [
 		{
-			name: 'Docs',
-			href: '#docs',
-			hasIcon: false
-		},
-		{
-			name: 'Math',
-			href: '#math',
-			hasIcon: false
+			name: 'Math behind calculator',
+			href: 'https://github.com/sergperep/bonfire/blob/main/docs/math.md',
+			hasIcon: true
 		},
 		{
 			name: 'GitHub',
