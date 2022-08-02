@@ -4,7 +4,7 @@
 
 <div class="devbar">
 	<div class="developer">
-		<img class="avatar" src="src/img/avatar.jpg" alt="developer Sergei Perepelkin" />
+		<img class="avatar" src="./src/img/avatar.jpg" alt="developer Sergei Perepelkin" />
 		<div class="desc">
 			<span class="dev-name">Sergei Perepelkin</span>
 			<span class="dev-position"> • Developer</span>

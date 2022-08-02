@@ -13,11 +13,11 @@
 
 @font-face {
   font-family: 'socials';
-  src:  url('src/fonts/socials.eot?a1weha');
-  src:  url('src/../fonts/socials.eot?a1weha#iefix') format('embedded-opentype'),
-    url('src/fonts/socials.ttf?a1weha') format('truetype'),
-    url('src/fonts/socials.woff?a1weha') format('woff'),
-    url('src/fonts/socials.svg?a1weha#socials') format('svg');
+  src:  url('./src/fonts/socials.eot?a1weha');
+  src:  url('./src/fonts/socials.eot?a1weha#iefix') format('embedded-opentype'),
+    url('./src/fonts/socials.ttf?a1weha') format('truetype'),
+    url('./src/fonts/socials.woff?a1weha') format('woff'),
+    url('./src/fonts/socials.svg?a1weha#socials') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
