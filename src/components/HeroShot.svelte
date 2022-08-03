@@ -9,7 +9,7 @@
 			</p>
 		</div>
 		<div class="image-col">
-			<img src="./src/img/hero-image.png" alt="campfire"/>
+			<img src="/img/hero-image.png" alt="campfire"/>
 		</div>
 	</div>
 </div>

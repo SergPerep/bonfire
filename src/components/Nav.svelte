@@ -15,7 +15,7 @@
 
 <nav>
 	<div class="main-container">
-		<img src="./src/img/logo.svg" alt="logo bonfire" />
+		<img src="/img/logo.svg" alt="logo bonfire" />
 		<div class="buttons">
 			{#each buttonList as button}
 				{#if button.hasIcon}
