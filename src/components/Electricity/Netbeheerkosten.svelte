@@ -11,26 +11,8 @@
 	let isHelpScreenOpen = false;
 	const openHelpScreen = () => isHelpScreenOpen = true;
 
-	const checkIfNetbeheerkostenAreValid = (
-		elNetbeheerKosten: kosten
-	): { status: Status; hintStr: string | null } => {
-		if (elNetbeheerKosten && elNetbeheerKosten > 0)
-			return {
-				status: 'success',
-				hintStr: null
-			};
-		if (elNetbeheerKosten && elNetbeheerKosten < 0)
-			return {
-				status: 'error',
-				hintStr: "Can't be negative"
-			};
-		return {
-			status: null,
-			hintStr: null
-		};
-	};
+	let status: Status = null;
 
-	$: ({ status, hintStr } = checkIfNetbeheerkostenAreValid(elNetbeheerKosten));
 	$: sections.setStatus(id, status);
 	$: sectionStatus = getSectionStatus(id, $sections);
 	$: sectionTitle = getSectionTitle(id, $sections);
@@ -47,8 +29,9 @@
 		label="Elektriciteit netbeheerkosten"
 		suffix="€/dag"
 		bind:value={elNetbeheerKosten}
-		{status}
-		{hintStr}
+		bind:status
+		min={0}
+		max={20}
 		placeholder="e.g. 0.696597"
 	/>
 </Section>

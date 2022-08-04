@@ -13,30 +13,8 @@
 	const id = 'gas-vaste-leveringskosten';
 	const sectionTitle = getSectionTitle(id, $sections);
 
-	const checkIfVastLevKostenIsValid = (
-		gasVasteLevKosten: kosten
-	): {
-		status: Status;
-		hintStr: string | null;
-	} => {
-		const defaultReturn = {
-			status: null,
-			hintStr: null
-		};
-		if (!gasVasteLevKosten) return defaultReturn;
-		if (gasVasteLevKosten > 0)
-			return {
-				status: 'success',
-				hintStr: null
-			};
-		if (gasVasteLevKosten < 0)
-			return {
-				status: 'error',
-				hintStr: "Can't be negative"
-			};
-		return defaultReturn;
-	};
-	$: ({ status, hintStr } = checkIfVastLevKostenIsValid(gasVasteLevKosten));
+	let status: Status = null;
+
 	$: sections.setStatus(id, status);
 	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
@@ -54,8 +32,9 @@
 		label="Gas vaste kosten"
 		suffix="€/maand"
 		bind:value={gasVasteLevKosten}
-		{status}
-		{hintStr}
+		bind:status
+		min={0}
+		max={20}
 		placeholder="e.g. 6.489956"
 	/>
 </Section>

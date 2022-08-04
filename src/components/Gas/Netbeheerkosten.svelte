@@ -13,30 +13,7 @@
 	const id = "gas-netbeheerkosten";
 	const sectionTitle = getSectionTitle(id, $sections);
 
-	const checkIfVastLevKostenIsValid = (
-		gasNetbeheerKosten: kosten
-	): {
-		status: Status;
-		hintStr: string | null;
-	} => {
-		const defaultReturn = {
-			status: null,
-			hintStr: null
-		};
-		if (!gasNetbeheerKosten) return defaultReturn;
-		if (gasNetbeheerKosten > 0)
-			return {
-				status: 'success',
-				hintStr: null
-			};
-		if (gasNetbeheerKosten < 0)
-			return {
-				status: 'error',
-				hintStr: "Can't be negative"
-			};
-		return defaultReturn;
-	};
-	$: ({ status, hintStr } = checkIfVastLevKostenIsValid(gasNetbeheerKosten));
+	let status: Status = null;
 	$: sections.setStatus(id, status);
 	$: sectionStatus = getSectionStatus(id, $sections);
 </script>
@@ -52,8 +29,9 @@
 		label="Gas netbeheerkosten"
 		suffix="€/dag"
 		bind:value={gasNetbeheerKosten}
-		{status}
-		{hintStr}
+		bind:status
+		min={0}
+		max={20}
 		placeholder="e.g. 0.512435"
 	/>
 </Section>

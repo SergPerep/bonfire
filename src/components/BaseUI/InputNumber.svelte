@@ -1,14 +1,31 @@
 <script lang="ts">
-	export let placeholder = "";
+	export let placeholder = '';
 	export let value: number | null = null;
+	export let min = -100000;
+	export let max = 100000;
 	export let label = 'Label';
 	export let prefix: string | null = null;
 	export let suffix: string | null = null;
 	export let hintStr: string | null = null;
 	export let status: Status = null;
+
 	$: error = status === 'error';
 	let inputEl: HTMLInputElement;
 	let focused = false;
+
+	const checkIfValid = (
+		value: number | null
+	): { status: Status; hintStr: string | null } => {
+		const defaultReturn = { status: null, hintStr: null };
+		if (!value) return defaultReturn;
+		if (value <= min) return { status: 'error', hintStr: `Can not be less than ${min}` };
+		if (value > min && value <= max) return { status: 'success', hintStr: null };
+		if (value > max) return { status: 'error', hintStr: `Can not be greater than ${max}` };
+		return defaultReturn;
+	};
+
+	$: ({ status, hintStr } = checkIfValid(value));
+
 	const handleClickField = () => {
 		inputEl.focus();
 	};
@@ -46,10 +63,10 @@
 		&.focused {
 			outline: 2px solid colors.$success;
 		}
-		&.error{
+		&.error {
 			border: 1px solid colors.$error;
 		}
-		&.error.focused{
+		&.error.focused {
 			outline: 2px solid colors.$error;
 		}
 	}
@@ -82,11 +99,11 @@
 		padding-right: 12px;
 	}
 
-	.hint{
+	.hint {
 		@include fonts.small;
 		padding-top: 8px;
 		color: colors.$black-a60;
-		&.error{
+		&.error {
 			color: colors.$error;
 		}
 	}
