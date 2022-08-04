@@ -49,6 +49,9 @@
 		&.error{
 			border: 1px solid colors.$error;
 		}
+		&.error.focused{
+			outline: 2px solid colors.$error;
+		}
 	}
 
 	label {
