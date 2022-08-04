@@ -30,14 +30,16 @@
 			margin-bottom: 0;
 		}
 	}
-	.check,
-	.error {
+	.material-symbols-outlined{
+	&.check,
+	&.error {
 		margin-right: 8px;
 	}
-	.check {
+	&.check {
 		color: colors.$success;
 	}
-	.error {
+	&.error {
 		color: colors.$error;
 	}
+}
 </style>
