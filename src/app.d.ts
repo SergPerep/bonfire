@@ -11,7 +11,8 @@ type Section = {
     id: string,
     title: string,
     status: Status,
-    energyType: "el" | "gas"
+    energyType: "el" | "gas",
+    isHelpScreenOpen: boolean
 };
 type Sections = Section[];
 

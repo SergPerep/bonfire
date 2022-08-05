@@ -5,55 +5,64 @@ function createSections() {
         id: 'el-consumption',
         title: 'Consumption',
         status: null,
-        energyType: "el"
+        energyType: "el",
+        isHelpScreenOpen: false
     },
     {
         id: 'el-totale-variabele-kosten',
         title: 'Totale variabele kosten',
         status: null,
-        energyType: "el"
+        energyType: "el",
+        isHelpScreenOpen: false
     },
     {
         id: 'el-vaste-leveringskosten',
         title: 'Vaste leveringskosten',
         status: null,
-        energyType: "el"
+        energyType: "el",
+        isHelpScreenOpen: false
     },
     {
         id: 'el-vermindering-energiebelasting',
         title: "Vermindering energiebelasting",
         status: "success",
-        energyType: "el"
+        energyType: "el",
+        isHelpScreenOpen: false
     },
     {
         id: 'el-netbeheerkosten',
         title: 'Netbeheerkosten',
         status: null,
-        energyType: "el"
+        energyType: "el",
+        isHelpScreenOpen: false
     },
     {
         id: 'gas-consumption',
         title: 'Consumption',
         status: null,
-        energyType: "gas"
+        energyType: "gas",
+        isHelpScreenOpen: false
     },
     {
         id: 'gas-totale-variabele-kosten',
         title: 'Totale variabele kosten',
         status: null,
-        energyType: "gas"
+        energyType: "gas",
+        isHelpScreenOpen: false
     },
     {
         id: 'gas-vaste-leveringskosten',
         title: 'Vaste leveringskosten',
         status: null,
-        energyType: "gas"
+        energyType: "gas",
+        isHelpScreenOpen: false
     },
     {
         id: 'gas-netbeheerkosten',
         title: 'Netbeheerkosten',
         status: null,
-        energyType: "gas"
+        energyType: "gas",
+        isHelpScreenOpen: false
     }
     ]);
     const { subscribe, set, update } = sections;
@@ -62,12 +71,34 @@ function createSections() {
         subscribe,
         setStatus: (id: string, status: Status) => {
             update(sections => {
-                const newSect = sections.map(section => {
+                const updatedSections = sections.map(section => {
                     if (section.id === id) section.status = status;
                     return section;
                 });
                 console.log(`Status for ${id} has been set as ${status}`)
-                return newSect;
+                return updatedSections;
+            })
+        },
+        openHelpScreen: (id: string) => {
+            update(sections => {
+                const updatedSections = sections.map(section => {
+                    if (section.id === id) {
+                        section.isHelpScreenOpen = true;
+                    } else if (section.isHelpScreenOpen === true) {
+                        section.isHelpScreenOpen = false;
+                    }
+                    return section;
+                });
+                return updatedSections;
+            })
+        },
+        closeHelpScreens: () => {
+            update(sections => {
+                const updatedSections = sections.map(section => {
+                    if (section.isHelpScreenOpen === true) section.isHelpScreenOpen = false;
+                    return section;
+                });
+                return updatedSections;
             })
         }
     }
@@ -87,6 +118,11 @@ export const getSectionStatus = (id: string, sections: Sections) => {
     const section = getSection(id, sections);
     const status = section?.status || null;
     return status;
+}
+
+export const getIsHelpScreenOpen = (id: string, sections: Sections) => {
+    const section = getSection(id, sections);
+    return section?.isHelpScreenOpen;
 }
 
 // Returns a ratio of successfully filled sections for specified energyType (electricity or gas)

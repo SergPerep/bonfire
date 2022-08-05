@@ -1,10 +1,13 @@
 <script lang="ts">
+	import HelpScreen from '../Help/HelpScreen.svelte';
 	export let title = 'Section';
 	export let status: Status = null;
 	export let id: string;
+	export let helpScreenTitle = 'Help screen';
+	export let isHelpScreenOpen = false;
 </script>
 
-<section class:error={status === "error"} class:success={status === "success"} {id}>
+<section class:error={status === 'error'} class:success={status === 'success'} {id}>
 	<header>
 		{#if status === 'success'}
 			<span class="material-symbols-outlined solid-icon check"> check_circle </span>
@@ -13,6 +16,9 @@
 		{/if}
 		<h2>{title}</h2>
 	</header>
+	<HelpScreen title={helpScreenTitle} isOpen={isHelpScreenOpen}
+		><slot name="help-screen" /></HelpScreen
+	>
 	<slot />
 </section>
 
@@ -30,16 +36,16 @@
 			margin-bottom: 0;
 		}
 	}
-	.material-symbols-outlined{
-	&.check,
-	&.error {
-		margin-right: 8px;
+	.material-symbols-outlined {
+		&.check,
+		&.error {
+			margin-right: 8px;
+		}
+		&.check {
+			color: colors.$success;
+		}
+		&.error {
+			color: colors.$error;
+		}
 	}
-	&.check {
-		color: colors.$success;
-	}
-	&.error {
-		color: colors.$error;
-	}
-}
 </style>

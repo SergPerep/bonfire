@@ -1,8 +1,12 @@
 <script lang="ts">
 	import NumberInput from '../BaseUI/InputNumber.svelte';
 	import Section from '../BaseUI/Section.svelte';
-	import { sections, getSectionTitle, getSectionStatus } from '../../stores/sections';
-	import HelpScreen from '../Help/HelpScreen.svelte';
+	import {
+		sections,
+		getSectionTitle,
+		getSectionStatus,
+		getIsHelpScreenOpen
+	} from '../../stores/sections';
 	import CoolblueTarieven from '../RatesExamples/CoolblueTarieven.svelte';
 	import Link from '../BaseUI/Link.svelte';
 	export let isMeterkastSlim = false;
@@ -24,10 +28,7 @@
 		if (normaalStatus === 'success' && dalStatus === 'success') return 'success';
 		return null;
 	};
-	let isHelpScreenOpen = false;
-	const openHelpScreen = () => {
-		isHelpScreenOpen = true;
-	};
+	const openHelpScreen = () => sections.openHelpScreen(id);
 
 	let normaalStatus: Status = null;
 	let dalStatus: Status = null;
@@ -38,15 +39,22 @@
 		checkIfSectionIsValid(isMeterkastSlim, normaalStatus, dalStatus, enkelStatus)
 	);
 	$: sectionStatus = getSectionStatus(id, $sections);
+	$: isHelpScreenOpen = getIsHelpScreenOpen(id, $sections);
 </script>
 
-<Section title={sectionTitle} status={sectionStatus} {id}>
+<Section
+	title={sectionTitle}
+	status={sectionStatus}
+	{id}
+	helpScreenTitle={`Where to find ${sectionTitle}?`}
+	{isHelpScreenOpen}
+>
 	<p>
 		Electricity rates that are charged by an energy supplier. <Link onClick={openHelpScreen}
 			>Where to find?</Link
 		>
 	</p>
-	<HelpScreen title={`Where to find ${sectionTitle}?`} bind:isOpen={isHelpScreenOpen}>
+	<div slot="help-screen">
 		<p>
 			Find the document with energy rates (tarieven). Energy supplier should have sent it after you
 			signed the contract. See an example below.
@@ -62,7 +70,7 @@
 			isElTotVarKostDalTarActive={true}
 			isElTotVarKostEnkTarActive={true}
 		/>
-	</HelpScreen>
+	</div>
 	{#if isMeterkastSlim}
 		<div class="container">
 			<div class="col-2">

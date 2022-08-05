@@ -87,8 +87,6 @@
 		}
 	};
 
-
-
 	const elTerugLeverTarief = {
 		title: 'Teruglevertarief',
 		eenheden: '€/kWh',
@@ -105,98 +103,99 @@
 	export let isElVermEnrgBelastActive = false;
 	export let isElNetBehKostActive = false;
 
-    const elVasteKosten = {
-        title: "Vaste kosten elektriciteit",
-        eenheden: "€/dag",
-        rows: [
-            {
-                name: "Vaste leveringskosten",
-                eenheden: "€/maand",
-                inclBTW: "6.489956",
+	const elVasteKosten = {
+		title: 'Vaste kosten elektriciteit',
+		eenheden: '€/dag',
+		rows: [
+			{
+				name: 'Vaste leveringskosten',
+				eenheden: '€/maand',
+				inclBTW: '6.489956',
 				isActive: isElVasLevKostActive
-            },
-            {
-                name: "Vermindering energiebelasting",
-                inclBTW: "-1,530302",
+			},
+			{
+				name: 'Vermindering energiebelasting',
+				inclBTW: '-1,530302',
 				isActive: isElVermEnrgBelastActive
-            },
-            {
-                name: "Netbeheerkosten",
-                inclBTW: "0.651585",
+			},
+			{
+				name: 'Netbeheerkosten',
+				inclBTW: '0.651585',
 				isActive: isElNetBehKostActive
-            }
-        ]
-    }
+			}
+		]
+	};
 
 	export let isGasTotVarKostTarActive = false;
 
-    const gasVarKosten = {
-        title: "Variabele kosten gas",
-        eenheden: "€/m3",
-        rows: [
-            {
-                name: "Variabele leveringskosten",
-                inclBTW: "0.300080",
+	const gasVarKosten = {
+		title: 'Variabele kosten gas',
+		eenheden: '€/m3',
+		rows: [
+			{
+				name: 'Variabele leveringskosten',
+				inclBTW: '0.300080',
 				isActive: false
-            },
-            {
-                name: "Energiebelasting",
-                inclBTW: "0.421758",
+			},
+			{
+				name: 'Energiebelasting',
+				inclBTW: '0.421758',
 				isActive: false
-            },
-            {
-                name: "Opslag duurzame energie",
-                inclBTW: "0.102971",
+			},
+			{
+				name: 'Opslag duurzame energie',
+				inclBTW: '0.102971',
 				isActive: false
-            }
-        ],
-        total: {
-            name: 'Totale variabele kosten normaaltarief',
-            inclBTW: "0.824809",
+			}
+		],
+		total: {
+			name: 'Totale variabele kosten normaaltarief',
+			inclBTW: '0.824809',
 			isActive: isGasTotVarKostTarActive
-        }
-    }
+		}
+	};
 
 	export let isGasVasLevKostActive = false;
 	export let isGasNetBehKostActive = false;
 
-    const gasVasteKosten = {
-        title: "Vaste kosten gas",
-        eenheden: "€/dag",
-        rows: [
-            {
-                name: "Vaste leveringskosten",
-                eenheden: "€/maand",
-                inclBTW: "6.489956",
+	const gasVasteKosten = {
+		title: 'Vaste kosten gas',
+		eenheden: '€/dag',
+		rows: [
+			{
+				name: 'Vaste leveringskosten',
+				eenheden: '€/maand',
+				inclBTW: '6.489956',
 				isActive: isGasVasLevKostActive
-            },
-            {
-                name: "Netbeheerkosten",
-                inclBTW: "0.484242",
+			},
+			{
+				name: 'Netbeheerkosten',
+				inclBTW: '0.484242',
 				isActive: isGasNetBehKostActive
-            }
-        ]
-    }
+			}
+		]
+	};
 </script>
 
 <div>
-<h2>Tarieven elektriciteit</h2>
-<Table tableData={elVarKostenEnkelTarief} />
-<Table tableData={elVarKsotenNormaalTarief} />
-<Table tableData={elVarKsotenDalTarief} />
-<Table tableData={elTerugLeverTarief} />
-<Table tableData={elVasteKosten} />
-<h2>Tarieven gas</h2>
-<Table tableData={gasVarKosten} />
-<Table tableData={gasVasteKosten} />
+	<h2>Tarieven elektriciteit</h2>
+	<Table tableData={elVarKostenEnkelTarief} />
+	<Table tableData={elVarKsotenNormaalTarief} />
+	<Table tableData={elVarKsotenDalTarief} />
+	<Table tableData={elTerugLeverTarief} />
+	<Table tableData={elVasteKosten} />
+	<h2>Tarieven gas</h2>
+	<Table tableData={gasVarKosten} />
+	<Table tableData={gasVasteKosten} />
 </div>
 
 <style lang="scss">
-	div{
+	
+	div {
+		margin-top: 24px;
 		border: 1px solid colors.$black-a12;
 		border-radius: 16px;
 		padding: 24px;
 		background-color: colors.$black-a04;
 	}
 </style>
-
