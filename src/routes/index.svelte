@@ -4,8 +4,13 @@
 	import GasCard from '../components/Gas/GasCard.svelte';
 	import Total from '../components/Total/Total.svelte';
 	import Nav from '../components/Nav.svelte';
-import HeroShot from '../components/HeroShot.svelte';
-import DeveloperBar from '../components/DeveloperBar/DeveloperBar.svelte';
+	import HeroShot from '../components/HeroShot.svelte';
+	import DeveloperBar from '../components/DeveloperBar/DeveloperBar.svelte';
+	import { sections } from '../stores/sections';
+	$: isAnyHelpScreenOpen = $sections.reduce(
+		(total, curVal) => total || curVal.isHelpScreenOpen,
+		false
+	);
 </script>
 
 <Nav />

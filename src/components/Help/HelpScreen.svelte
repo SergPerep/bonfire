@@ -4,7 +4,7 @@
 	export let isOpen = false;
 
 	const handleClickClose = () => sections.closeHelpScreens();
-	const handleClickOverlay = () => sections.closeHelpScreens();
+	const handleClickOverlay = () => {};
 </script>
 
 {#if isOpen}
@@ -46,23 +46,22 @@
 		}
 	}
 	.overlay {
-		// background-color: colors.$black-a60;
+		background-color: colors.$black-a60;
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		z-index: 3;
-		// padding: 24px 16px;
+		padding: 48px 16px;
 
 		overflow-y: scroll;
 	}
 	.popup {
 		background-color: white;
-		// border-radius: 16px;
-
-		width: 600px;
-		// margin: 0 auto;
+		border-radius: 16px;
+		width: 800px;
+		margin: 0 auto;
 		.body {
 			padding: 12px 36px 36px;
 		}
