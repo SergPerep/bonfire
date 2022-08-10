@@ -89,6 +89,7 @@ function createSections() {
                     }
                     return section;
                 });
+                setClassToBody("add", "is-help-screen-open");
                 return updatedSections;
             })
         },
@@ -98,11 +99,30 @@ function createSections() {
                     if (section.isHelpScreenOpen === true) section.isHelpScreenOpen = false;
                     return section;
                 });
+                setClassToBody("remove", "is-help-screen-open");
                 return updatedSections;
             })
         }
     }
 };
+
+const setClassToBody = (action: "add" | "remove", className: string) => {
+    action = action || "add";
+    className = className || "";
+
+    const bodyEl = document.querySelector("body");
+    switch (action){
+        case "add":
+            if (!bodyEl?.classList.contains("is-help-screen-open")) {
+                bodyEl?.classList.add("is-help-screen-open");
+            };
+            break;
+        case "remove":
+            if (bodyEl?.classList.contains(className)) {
+                bodyEl.classList.remove(className);
+            };
+    }
+}
 
 const getSection = (id: string, sections: Sections) => {
     return sections.find(section => section.id === id);

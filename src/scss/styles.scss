@@ -9,6 +9,9 @@
 body {
     font-family: "Roboto", sans-serif;
     background-color: colors.$soft-sand;
+    &.is-help-screen-open{
+        overflow-y: hidden;
+    }
 }
 
 h2 {
