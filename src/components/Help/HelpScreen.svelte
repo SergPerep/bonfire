@@ -24,8 +24,8 @@
 <style lang="scss">
 	header {
 		display: flex;
-		border-bottom: 1px solid colors.$black-a12;
-		padding: 24px 24px 16px;
+		// border-bottom: 1px solid colors.$black-a12;
+		padding: 28px 36px 0;
 		h2 {
 			@include fonts.h3;
 			width: calc(100% - 24px - 8px);
@@ -54,7 +54,6 @@
 		height: 100%;
 		z-index: 3;
 		padding: 48px 16px;
-
 		overflow-y: scroll;
 	}
 	.popup {
@@ -63,7 +62,7 @@
 		width: 800px;
 		margin: 0 auto;
 		.body {
-			padding: 12px 36px 36px;
+			padding: 4px 36px 36px;
 		}
 		:global(p){
 			margin: 12px 0;

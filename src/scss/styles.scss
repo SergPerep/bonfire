@@ -4,8 +4,8 @@
 @forward "./base/reset";
 @forward "./base/layout";
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 body {
     font-family: "Roboto", sans-serif;
     background-color: colors.$soft-sand;
@@ -39,11 +39,14 @@ a,
 
 b {
     font-family: "Roboto Mono", monospace;
-    background-color: colors.$black-a08;
-    padding: 0 8px;
+    font-weight: 400;
+    background-color: rgba(#8D796D, .12);
+    padding: 1px 8px 2px;
     margin: 0 2px;
-    border-radius: 2px;
+    border-radius: 3px;
     line-height: 24px;
+    color: #AC4B15;
+    // color: #924E28;
 }
 
 p {
