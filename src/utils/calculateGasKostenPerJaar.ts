@@ -1,9 +1,11 @@
 const calculateGasKostenPerJaar = (
+    hasGas: boolean,
     gasConsumptie: number | null,
 	gasTotVarKosten: number | null,
 	gasVasteLevKosten: number | null,
 	gasNetbeheerKosten: number | null
 ) => {
+    if(!hasGas) return null;
     /*===== GAS ===== */
     const isAllDataFilled = gasConsumptie && gasTotVarKosten && gasVasteLevKosten && gasNetbeheerKosten;
     if (!isAllDataFilled) return null;

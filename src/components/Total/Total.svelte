@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { gasKostenPerJaar, elKostenPerJaar } from '../../stores/kostenPerJaar';
 	import { sections, getSectionsFillingProgress } from '../../stores/sections';
-	import EnergyTypeCell from "./EnergyTypeCell.svelte";
+	import EnergyTypeCell from './EnergyTypeCell.svelte';
+	export let hasGas = true;
 	$: gasKostenPerMonth = $gasKostenPerJaar ? $gasKostenPerJaar / 12 : null;
 	$: elKostenPerMonth = $elKostenPerJaar ? $elKostenPerJaar / 12 : null;
 	$: totalKostenPerJaar =
@@ -33,16 +34,24 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class:empty={!$elKostenPerJaar} class:is-positive={$elKostenPerJaar ? $elKostenPerJaar >= 0 : false}>
-					<td><EnergyTypeCell fillingProgress={elFillingProgress} title="Elektriciteit"/></td>
+				<tr
+					class:empty={!$elKostenPerJaar}
+					class:is-positive={$elKostenPerJaar ? $elKostenPerJaar >= 0 : false}
+				>
+					<td><EnergyTypeCell fillingProgress={elFillingProgress} title="Elektriciteit" /></td>
 					<td>{formatPriceToString($elKostenPerJaar)}</td>
 					<td>{formatPriceToString(elKostenPerMonth)}</td>
 				</tr>
-				<tr class:empty={!$gasKostenPerJaar} class:is-positive={$gasKostenPerJaar ? $gasKostenPerJaar >= 0 : false}>
-					<td><EnergyTypeCell fillingProgress={gasFillingProgress} title="Gas"/></td>
-					<td>{formatPriceToString($gasKostenPerJaar)}</td>
-					<td>{formatPriceToString(gasKostenPerMonth)}</td>
-				</tr>
+				{#if hasGas}
+					<tr
+						class:empty={!$gasKostenPerJaar}
+						class:is-positive={$gasKostenPerJaar ? $gasKostenPerJaar >= 0 : false}
+					>
+						<td><EnergyTypeCell fillingProgress={gasFillingProgress} title="Gas" /></td>
+						<td>{formatPriceToString($gasKostenPerJaar)}</td>
+						<td>{formatPriceToString(gasKostenPerMonth)}</td>
+					</tr>
+				{/if}
 				<tr class="footer" class:empty={!totalKostenPerJaar}>
 					<td>Total</td>
 					<td>{formatPriceToString(totalKostenPerJaar)}</td>
@@ -76,17 +85,17 @@
 	td {
 		@include fonts.small;
 		padding: 10px 16px;
-		&:first-child{
+		&:first-child {
 			padding-left: 24px;
 		}
-		&:last-child{
+		&:last-child {
 			padding-right: 24px;
 		}
 	}
 	thead th {
 		border-bottom: 1px solid colors.$black-a12;
 		color: colors.$black-a30;
-		&:first-child{
+		&:first-child {
 			text-align: left;
 		}
 		&:not(:first-child) {
@@ -105,14 +114,14 @@
 	tr:not(.footer) td:not(:first-child) {
 		color: colors.$success;
 	}
-	tr:not(.footer).empty td:not(:first-child){
+	tr:not(.footer).empty td:not(:first-child) {
 		color: colors.$black-a30;
 	}
 	tr:not(.footer).is-positive td:not(:first-child) {
 		color: colors.$error;
 	}
 
-	tr.footer.empty td:not(:first-child){
+	tr.footer.empty td:not(:first-child) {
 		color: colors.$black-a30;
 	}
 </style>

@@ -11,6 +11,7 @@
 		(total, curVal) => total || curVal.isHelpScreenOpen,
 		false
 	);
+	let hasGas = true;
 </script>
 
 <Nav />
@@ -20,9 +21,9 @@
 	<div class="main-container">
 		<div class="col-1">
 			<ElectricityCard />
-			<GasCard />
+			<GasCard bind:hasGas/>
 		</div>
-		<div class="col-2"><Total /></div>
+		<div class="col-2"><Total {hasGas}/></div>
 	</div>
 </main>
 

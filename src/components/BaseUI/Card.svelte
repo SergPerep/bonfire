@@ -6,7 +6,8 @@
 	$: cardStatus = sectionList.reduce((prevVal, curVal) => {
 		return prevVal && curVal.status === 'success';
 	}, true);
-	export let footerTitle = "Totaal";
+	export let footerTitle = 'Totaal';
+	export let isFooterVisible = true;
 </script>
 
 <section class="card">
@@ -16,40 +17,42 @@
 	<div class="body">
 		<slot />
 	</div>
-	<div class="footer">
-		<h2>{footerTitle}</h2>
-		{#if cardStatus}
-			<div class="container">
-				<div class="col">
-					<div class="title">Everage per year</div>
-					<div class="desc">
-						<span class="value">{kostenPerJaar ? kostenPerJaar.toFixed(2) : ''}</span>
-						<span class="units">€/jaar</span>
+	{#if isFooterVisible}
+		<div class="footer">
+			<h2>{footerTitle}</h2>
+			{#if cardStatus}
+				<div class="container">
+					<div class="col">
+						<div class="title">Everage per year</div>
+						<div class="desc">
+							<span class="value">{kostenPerJaar ? kostenPerJaar.toFixed(2) : ''}</span>
+							<span class="units">€/jaar</span>
+						</div>
+					</div>
+					<div class="col">
+						<div class="title">Everage per month</div>
+						<div class="desc">
+							<span class="value">{kostenPerMaand ? kostenPerMaand.toFixed(2) : ''}</span>
+							<span class="units">€/maand</span>
+						</div>
 					</div>
 				</div>
-				<div class="col">
-					<div class="title">Everage per month</div>
-					<div class="desc">
-						<span class="value">{kostenPerMaand ? kostenPerMaand.toFixed(2) : ''}</span>
-						<span class="units">€/maand</span>
+			{:else}
+				{#each sectionList as section (section.title)}
+					<div class="checklist__item" class:success={section.status === 'success'}>
+						<div class="icon">
+							{#if section.status === 'success'}
+								<span class="material-symbols-outlined line-icon"> check_circle</span>
+							{:else}
+								<span class="material-symbols-outlined line-icon"> cancel </span>
+							{/if}
+						</div>
+						<a href={'#' + section.id}>{section.title}</a>
 					</div>
-				</div>
-			</div>
-		{:else}
-			{#each sectionList as section (section.title)}
-				<div class="checklist__item" class:success={section.status === 'success'}>
-					<div class="icon">
-						{#if section.status === 'success'}
-							<span class="material-symbols-outlined line-icon"> check_circle</span>
-						{:else}
-							<span class="material-symbols-outlined line-icon"> cancel </span>
-						{/if}
-					</div>
-					<a href={'#' + section.id}>{section.title}</a>
-				</div>
-			{/each}
-		{/if}
-	</div>
+				{/each}
+			{/if}
+		</div>
+	{/if}
 </section>
 
 <style lang="scss">
