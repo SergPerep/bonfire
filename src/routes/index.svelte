@@ -7,6 +7,7 @@
 	import HeroShot from '../components/HeroShot.svelte';
 	import DeveloperBar from '../components/DeveloperBar/DeveloperBar.svelte';
 	import { sections } from '../stores/sections';
+	import CircularProgressBar from '../components/BaseUI/CircularProgressBar.svelte';
 	$: isAnyHelpScreenOpen = $sections.reduce(
 		(total, curVal) => total || curVal.isHelpScreenOpen,
 		false

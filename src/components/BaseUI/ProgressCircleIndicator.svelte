@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* This component is redacted. But is still here just in case.
 	/* ===== SET UP Params ===== */
 	export let progress: number; // represents percent of a progress: from 0 to 1
 	const circleWidth = 20;

@@ -1,11 +1,12 @@
 <script lang="ts">
 	import ProgressCircleIndicator from '../BaseUI/ProgressCircleIndicator.svelte';
+	import CircularProgressBar from '../BaseUI/CircularProgressBar.svelte';
 	export let fillingProgress: number;
     export let title = "Energy type cell";
 </script>
 
 <div class="energy-type">
-	<ProgressCircleIndicator progress={fillingProgress} /><span>{title}</span>
+	<CircularProgressBar progress={fillingProgress} /><span>{title}</span>
 </div>
 
 <style lang="scss">
@@ -13,7 +14,7 @@
 		display: flex;
         font-weight: bold;
 		span {
-			padding: 1px 0 0 4px;
+			padding: 1px 0 0 8px;
 		}
 	}
 </style>
