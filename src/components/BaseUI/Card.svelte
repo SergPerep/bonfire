@@ -108,6 +108,7 @@
 		.icon {
 			width: 24px;
 			height: 24px;
+			padding-top: 4px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
