@@ -1,8 +1,10 @@
-$success: #26a85a;
-$success-dark: #087E37;
-$success-a40: rgba(#26a85a, 0.4);
-$error: #e2544b;
-$error-dark: #BC251B;
+@use "sass:color";
+$success: #468c11;
+$success-dark: darken($success, 13%);
+$success-a40: rgba($success, 0.4);
+$error: #e75d36;
+// $error-dark: #BC251B;
+$error-dark: darken($error, 13%);
 $link-blue: #166ab9;
 $soft-sand: #f3efeb;
 $prime: #EB661B;
