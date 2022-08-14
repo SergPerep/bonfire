@@ -75,7 +75,6 @@ function createSections() {
                     if (section.id === id) section.status = status;
                     return section;
                 });
-                console.log(`Status for ${id} has been set as ${status}`)
                 return updatedSections;
             })
         },
