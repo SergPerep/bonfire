@@ -1,6 +1,22 @@
+@use "../sass-utils/include-media" as *;
 .main-container {
-    width: 1100px;
+    max-width: 1200px;
+    padding: 0 24px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    @include media("<desktop") {
+        & {
+            width: 100%;
+            display: block;
+        }
+    }
+    @include media("<tablet") {
+        & {
+            padding: 0;
+            
+        }
+    }
 }
+
+

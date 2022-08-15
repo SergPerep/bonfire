@@ -4,7 +4,7 @@
 	export let isOpen = false;
 
 	const handleClickClose = () => sections.closeHelpScreens();
-	const handleClickOverlay = () => {};
+	const handleClickOverlay = () => sections.closeHelpScreens();
 </script>
 
 {#if isOpen}
@@ -26,6 +26,9 @@
 		display: flex;
 		// border-bottom: 1px solid colors.$black-a12;
 		padding: 28px 36px 0;
+		@include media("<tablet"){
+			padding: 28px 16px 0;
+		}
 		h2 {
 			@include fonts.h3;
 			width: calc(100% - 24px - 8px);
@@ -55,14 +58,29 @@
 		z-index: 3;
 		padding: 48px 16px;
 		overflow-y: scroll;
+		
+		@include media("<tablet"){
+			padding: 0;
+		}
 	}
 	.popup {
 		background-color: white;
 		border-radius: 16px;
-		width: 800px;
+		
 		margin: 0 auto;
+		@include media("<desktop"){
+			width: calc(100% - 32px);
+		}
+		@include media("<tablet"){
+			width: 100%;
+			min-height: 100%;
+			border-radius: 0;
+		}
 		.body {
 			padding: 4px 36px 36px;
+			@include media("<tablet"){
+				padding: 4px 16px 36px;
+			}
 		}
 		:global(p){
 			margin: 12px 0;

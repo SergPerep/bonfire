@@ -7,7 +7,7 @@
 
 <a class="social-button" href={url} target="_blank">
 	<!-- <Icon size={'sm'} name={iconName} /> -->
-	<div class={`icon-${iconName}-${size}`}></div>
+	<div class={`icon-${iconName}-${size}`} />
 	<span>{title}</span>
 </a>
 
@@ -25,8 +25,10 @@
 		&:hover {
 			color: black;
 		}
-		// &:focus {
-		// 	@include focus.button-focus;
-		// }
+		@include media('<tablet') {
+			span {
+				display: none;
+			}
+		}
 	}
 </style>

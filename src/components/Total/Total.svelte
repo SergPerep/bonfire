@@ -69,6 +69,9 @@
 		position: sticky;
 		top: 70px;
 		padding-bottom: 4px;
+		@include media("<tablet"){
+			border-radius: 0;
+		}
 	}
 	header {
 		padding: 24px 24px 4px;

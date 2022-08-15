@@ -39,13 +39,29 @@
 		top: 0;
 		width: 100%;
 		z-index: 3;
+		@include media("<tablet"){
+			padding: 12px;
+			position: static;
+			border-bottom: 1px solid colors.$black-a12;
+		}
+	}
+	.main-container{
+		display: flex;
+		@include media("<tablet") {
+			padding: 0 16px;
+		}
+		@include media("<tablet"){
+			justify-content: center;
+		}
 	}
 	img {
 		width: 100px;
 	}
 	.buttons {
 		display: flex;
-
+		@include media("<tablet"){
+			display: none;
+		}
 		a {
 			@include fonts.body;
 			color: colors.$black-a60;

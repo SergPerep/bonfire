@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SocialButton from "./SocialButton.svelte";
+	import SocialButton from './SocialButton.svelte';
 </script>
 
 <div class="devbar">
@@ -11,14 +11,19 @@
 		</div>
 	</div>
 	<div class="btn-group">
-		<SocialButton title='GitHub' iconName='GitHub' url="https://github.com/sergperep" size="md"/>
+		<SocialButton title="GitHub" iconName="GitHub" url="https://github.com/sergperep" size="md" />
 		<SocialButton
 			title={'LinkedIn'}
 			iconName={'LinkedIn'}
 			url="https://www.linkedin.com/in/sergperep/"
-            size="md"
+			size="md"
 		/>
-		<SocialButton title={'Twitter'} iconName={'Twitter'} url="https://twitter.com/sergperep" size="md"/>
+		<SocialButton
+			title={'Twitter'}
+			iconName={'Twitter'}
+			url="https://twitter.com/sergperep"
+			size="md"
+		/>
 	</div>
 </div>
 
@@ -40,7 +45,7 @@
 		position: fixed;
 		left: 0;
 		bottom: 0;
-        z-index: 1;
+		z-index: 1;
 		.developer {
 			display: flex;
 			align-items: center;
@@ -62,16 +67,6 @@
 			display: flex;
 			align-items: stretch;
 			height: 100%;
-		}
-	}
-
-	@media screen and (max-width: 700px) {
-		.devbar {
-			.social-button {
-				span {
-					display: none;
-				}
-			}
 		}
 	}
 </style>

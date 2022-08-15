@@ -20,19 +20,35 @@
 <main>
 	<HeroShot />
 	<div class="main-container">
-		<div class="col-1">
+		<div class="content-wrapper">
 			<ElectricityCard />
 			<GasCard bind:hasGas/>
 		</div>
-		<div class="col-2"><Total {hasGas}/></div>
+		<div class="total-wrapper"><Total {hasGas}/></div>
 	</div>
 </main>
 
 <style lang="scss">
-	.col-1 {
-		width: calc(65% - 12px);
+	.content-wrapper {
+		width: calc(100% - 350px - 24px);
+		@include media("<desktop") {
+			& {
+				width: 100%;
+			}
+		}
+		@include media("<tablet"){
+			& {
+				width: 100%;
+			}
+		}
 	}
-	.col-2 {
-		width: calc(35% - 12px);
+	.total-wrapper {
+		width: 350px;
+		@include media ("<desktop") {
+			& {
+				width: 100%;
+				margin-bottom: 56px;
+			}
+		}
 	}
 </style>

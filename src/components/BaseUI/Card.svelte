@@ -60,8 +60,15 @@
 		margin-bottom: 36px;
 		background-color: white;
 		border-radius: 12px;
+		@include media("<tablet"){
+			border-radius: 0;
+			margin-bottom: 24px;
+		};
 		.body {
 			padding: 0 24px 8px;
+			@include media("<tablet"){
+				padding: 0 16px 8px;
+			}
 		}
 	}
 	.header {
@@ -69,10 +76,16 @@
 		background-color: white;
 		border-radius: 16px 16px 0 0;
 		border-bottom: 1px solid colors.$black-a12;
+		@include media("<tablet"){
+			padding: 24px 16px 16px;
+		};
 	}
 	.header h2 {
 		font-size: 36px;
 		line-height: 48px;
+		@include media("<tablet") {
+			@include fonts.h3;
+		}
 	}
 
 	.footer {
@@ -95,6 +108,9 @@
 		}
 		.desc {
 			@include fonts.h2;
+			@include media("<tablet"){
+				@include fonts.h3;
+			}
 			.units {
 				font-size: 18px;
 			}
