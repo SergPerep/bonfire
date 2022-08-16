@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let buttonList: {name:string, href:string, hasIcon:boolean}[] = [];
+</script>
+
 <div class="hero-shot">
 	<div class="main-container">
 		<div class="desc-wrapper">
@@ -7,6 +11,17 @@
 				Grab your contract and calculate how much money you are going to spend on gas and
 				electricity this year.
 			</p>
+			<div class="buttons">
+				{#each buttonList as button}
+					{#if button.hasIcon}
+						<a href={button.href} class="with-icon">
+							{button.name}<span class="material-symbols-outlined"> arrow_outward </span>
+						</a>
+					{:else}
+						<a href={button.href}>{button.name}</a>
+					{/if}
+				{/each}
+			</div>
 		</div>
 		<div class="image-wrapper">
 			<img src="/img/hero-image.png" alt="campfire" />
@@ -67,5 +82,29 @@
 		font-size: 24px;
 		line-height: 36px;
 		color: colors.$black-a60;
+	}
+
+	.buttons{
+		display: none;
+		margin-top: 32px;
+		@include media("<tablet"){
+			display: flex;
+		}
+		a{
+			background-color: colors.$black-a04;
+			border: 1px solid colors.$black-a12;
+			color: colors.$black-a60;
+			border-radius: 20px;
+			display: flex;
+			align-items: center;
+			padding: 8px 12px 8px 16px;
+			transition: background-color .2s ease-in-out;
+			&:hover{
+				background-color: colors.$black-a12;
+			}
+			&:not(:last-child) {
+				margin-right: 12px;
+			}
+		}
 	}
 </style>

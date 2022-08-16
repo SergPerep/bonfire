@@ -6,19 +6,25 @@
 	import Nav from '../components/Nav.svelte';
 	import HeroShot from '../components/HeroShot.svelte';
 	import DeveloperBar from '../components/DeveloperBar/DeveloperBar.svelte';
-	import { sections } from '../stores/sections';
-	import CircularProgressBar from '../components/BaseUI/CircularProgressBar.svelte';
-	$: isAnyHelpScreenOpen = $sections.reduce(
-		(total, curVal) => total || curVal.isHelpScreenOpen,
-		false
-	);
 	let hasGas = true;
+	const buttonList = [
+		{
+			name: 'Math behind calculator',
+			href: 'https://github.com/sergperep/bonfire/blob/main/docs/math.md',
+			hasIcon: true
+		},
+		{
+			name: 'GitHub',
+			href: 'https://github.com/sergperep/bonfire',
+			hasIcon: true
+		}
+	];
 </script>
 
-<Nav />
+<Nav {buttonList}/>
 <DeveloperBar />
 <main>
-	<HeroShot />
+	<HeroShot {buttonList} />
 	<div class="main-container">
 		<div class="content-wrapper">
 			<ElectricityCard />

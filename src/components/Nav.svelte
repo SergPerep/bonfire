@@ -1,16 +1,5 @@
 <script lang="ts">
-	const buttonList = [
-		{
-			name: 'Math behind calculator',
-			href: 'https://github.com/sergperep/bonfire/blob/main/docs/math.md',
-			hasIcon: true
-		},
-		{
-			name: 'GitHub',
-			href: 'https://github.com/sergperep/bonfire',
-			hasIcon: true
-		}
-	];
+	export let buttonList: {name:string, href:string, hasIcon:boolean}[] = [];
 </script>
 
 <nav>
