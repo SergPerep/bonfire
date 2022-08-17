@@ -7,6 +7,7 @@ Energy cost calculator for housing in the Netherlands. It gives you a rough esti
 - Want to install and test? Clone the repo, then `npm install` and then `npm run dev`.
 
 ![cover](./docs/img/cover.png)
+
 ## Why
 
-Calculating energy expenses is hard and non-trivial. Energy-supplier gives you its rates, but it's not enough to figure out how much money you'll spend at the end of the year. This app guides you where to find all necessary numbers and makes all calculations for you.
+Knowing energy rates is not enough to calculate annual energy expenses. You have to consider grid owner prices, tax reductions, and a number of other variables. This app asks you for specific values, points where to find them in your contract, and makes all necessary calculations for you.
