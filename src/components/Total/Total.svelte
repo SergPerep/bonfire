@@ -69,7 +69,7 @@
 		position: sticky;
 		top: 70px;
 		padding-bottom: 4px;
-		@include media("<tablet"){
+		@include media('<tablet') {
 			border-radius: 0;
 		}
 	}
@@ -80,6 +80,9 @@
 			margin-bottom: 0;
 		}
 	}
+	.body {
+		padding: 0 24px 12px;
+	}
 	table {
 		border-collapse: collapse;
 		width: 100%;
@@ -87,12 +90,12 @@
 	th,
 	td {
 		@include fonts.small;
-		padding: 10px 16px;
+		padding: 12px 4px;
 		&:first-child {
-			padding-left: 24px;
+			padding-left: 0;
 		}
 		&:last-child {
-			padding-right: 24px;
+			padding-right: 0;
 		}
 	}
 	thead th {
@@ -107,6 +110,9 @@
 	}
 	tbody td:not(:first-child) {
 		text-align: right;
+	}
+	tbody tr:not(:nth-last-child(2)) td, tbody tr:not(:nth-last-child(3)) {
+		padding-bottom: 4px;
 	}
 	tr.footer {
 		border-top: 1px solid colors.$black-a12;
