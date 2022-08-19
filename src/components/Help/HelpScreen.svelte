@@ -66,7 +66,7 @@
 	.popup {
 		background-color: white;
 		border-radius: 16px;
-		
+		width: 800px;
 		margin: 0 auto;
 		@include media("<desktop"){
 			width: calc(100% - 32px);
