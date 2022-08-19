@@ -3,9 +3,11 @@
 Explanation of the math behind gas-burner app.
 
 ## What do you need
-To calculate energy expenses you need to have: 
+
+To calculate energy expenses you need to have:
+
 - **Annual energy consumption**. For gas and electricity for a year.
-- **Rates agreement `Tarieven overeenkomst`**. The document where you can find information about rates and other energy costs that you signed up for. Energy provider should have sent it to you after you have signed up a contract. It may look like this [Coolblue Rates Agreement Example](./coolblue_minder_energie_2021.png). 
+- **Rates agreement `Tarieven overeenkomst`**. The document where you can find information about rates and other energy costs that you signed up for. Energy provider should have sent it to you after you have signed up a contract. It may look like this [Coolblue Rates Agreement Example](./coolblue_minder_energie_2021.png).
 
 ### Annual energy consumption
 
@@ -18,6 +20,7 @@ For this example I'm going to use my own data for 2021 year.
 | Electricity consumption: Normaal | 507  kWh                      |
 | Electricity consumption: Dal     | 402 kWh                       |
 | Gas consumption                  | 1200 m³                       |
+
 ### Rates agreement `Tarieven overeenkomst`
 
 You receive this document after you sign a contract with energy supplier. You can find it in your emails or in your personal account on website of your energy provider. It might look like this:
@@ -36,13 +39,12 @@ There 4 types of expenses that you should keep an eye on regarding electricity.
 
 Money that you pay to energy supplier for electricity that you have used. They are called "variable" since they depend on your consumption.
 
-<details><summary><b>Is your meter box smart?</b></summary>    
+<details><summary><b>Is your meter box smart?</b></summary>
 
 <p>There is two types of meter boxes: smart (slim) and not smart. </p>
 <p>If your meter box is not smart, it has only one reading – enkel. If your meter box is smart, it has two readings: day readings (normaal), night readings (dal).</p>
 
 </details>
-
 
 ```javascript
 // If your meterkast is not slim
@@ -51,8 +53,9 @@ const elEnkelTotVarKosten = 0.470799; // €/kWh
 const elTotVarKostenPerJaar =
     elConsumptieEnkel * elEnkelTotVarKosten;
 // RESULT
-// Total electricity variable costs for this year are 429€ 
+// Total electricity variable costs for this year are €429 
 ```
+
 ```javascript
 // If your meterkast is slim
 
@@ -67,7 +70,7 @@ const elTotVarKostenPerJaar =
     elConsumptieDal * elDalTotVarKosten;
 
 // RESULT
-// Total electricity variable costs for this year are 428€ 
+// Total electricity variable costs for this year are €428 
 ```
 
 ### 2. Electricity fixed costs `Vaste leveringskosten`
@@ -78,7 +81,7 @@ Fixed amount of money that you pay to energy supplier. They are the same every m
 const elVasteLevKosten = 6.489956; // €/month
 const elVasteLevKostenPerJaar = elVasteLevKosten * 12;
 // RESULT
-// Total electricity fixed costs for this year are 78€
+// Total electricity fixed costs for this year are €78
 ```
 
 ### 3. Electricity reduction energy tax `Vermindering energiebelasting`
@@ -90,7 +93,7 @@ The size of tax reduction depends on a year when your contract starts. For 2022 
 const elVerminEnergBelasting = -2.259650; // €/day
 const elVerminEnergBelastingPerJaar = elVerminEnergBelasting * 365;
 // RESULT
-// Reduction energy tax for this year is -825€
+// Reduction energy tax for this year is -€825
 ```
 
 ### 4. Electricity delivery costs `Netbeheerkosten`
@@ -101,7 +104,7 @@ Money that you pay to grid operator for connection and transport of electricity.
 const elNetbeheerKosten = 0.696597; // €/day
 const elNetbeheerKostenPerJaar = elNetbeheerKosten * 365;
 // RESULT
-// Reduction energy tax for this year is 254€
+// Reduction energy tax for this year is €254
 ```
 ### Total electricity costs
 
@@ -115,13 +118,13 @@ const elKostenPerJaar =
         elNetbeheerKostenPerJaar;
 
 // RESULT
-// Expenses for electricity this year are -65€
+// Expenses for electricity this year are -€65
 
 // Divide by 12 to get monthly average
 const elKostenPerMaand = elKostenPerJaar / 12;
 
 // RESULT
-// Monthly average expenses for electricity are -5.42€
+// Monthly average expenses for electricity are -€5.42
 ```
 > Depending on your electricity consumption your total electricity expenses can come out negative thanks to reduction energy tax.
 ## 🔥 Gas
@@ -138,7 +141,7 @@ const gasTotVarKostenPerJaar =
     gasTotVarKosten * gasConsumptie;
 
 // RESULT
-// Total gas variable costs for this year are 2313€
+// Total gas variable costs for this year are €2313
 ```
 ### 2. Gas fixed costs `Vaste leveringskosten`
 
@@ -149,7 +152,7 @@ const gasVasteLevKosten = 6.489956; // €/month
 const gasVasteLevKostenPerJaar = gasVasteLevKosten * 12;
 
 // RESULT
-// Total gas fixed costs for this year are 78€
+// Total gas fixed costs for this year are €78
 ```
 ### 3. Gas delivery costs `Netbeheerkosten`
 
@@ -160,7 +163,7 @@ const gasNetbeheerKosten = 0.512435; // €/day
 const gasNetbeheerKostenPerJaar = gasNetbeheerKosten * 365;
 
 // RESULT
-// Total gas delivery costs for this year are 187€
+// Total gas delivery costs for this year are €187
 ```
 ### Total gas costs
 
@@ -173,12 +176,12 @@ const gasKostenPerJaar =
     gasNetbeheerKostenPerJaar;
 
 // RESULT
-// Total gas costs for this year are 5155€
+// Total gas costs for this year are €5155
 
 const gasKostenPerMaand = gasKostenPerJaar / 12;
 
 // RESULT
-// Monthly average expenses for gas are 430€
+// Monthly average expenses for gas are €430
 ```
 
 ## 🏁 Total energy costs
@@ -189,10 +192,10 @@ Finally add up total electricity costs and total gas costs and you will get tota
 const totaleKostenPerJaar = elKostenPerJaar + gasKostenPerJaar;
 
 // RESULT
-// Total energy costs for this year are 5090€
+// Total energy costs for this year are €5090
 
 const totaleKostenPerMaand = totaleKostenPerJaar / 12;
 
 // RESULT
-// Monthly average expenses for energy are 424€
+// Monthly average expenses for energy are €424
 ```
