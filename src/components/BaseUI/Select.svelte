@@ -51,6 +51,10 @@
 		padding: 12px;
 		appearance: none;
 		@include fonts.body;
+		&:focus{
+			outline: 2px solid colors.$success;
+			border-radius: 8px;
+		}
 	}
 	.appendix {
 		position: absolute;
