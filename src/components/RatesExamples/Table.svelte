@@ -42,34 +42,37 @@
 	table {
 		width: 100%;
 		border-collapse: collapse;
-		margin: 16px 0;
-		border-radius: 8px;
+		margin: 16px 0 24px;
 		overflow: hidden;
 	}
 	th {
 		text-align: left;
-		background-color: black;
-		color: white;
-		padding: 6px 8px;
-		font-weight: normal;
+		color: colors.$black-a30;
+		background-color: colors.$black-a04;
+		padding: 10px 8px 8px;
+		text-transform: uppercase;
+		font-size: 14px;
+		border-bottom: 2px solid colors.$black-a12;
+		border-radius: 4px 4px 0 0;
 		&:not(:first-child) {
 			text-align: right;
 		}
 	}
 	td {
-		padding: 4px 8px;
+		padding: 6px 8px;
+		border-top: 1px solid colors.$black-a08;
 		&:not(:first-child) {
 			text-align: right;
 		}
 	}
 	.total td {
-		// padding-top: 4px;
+		
 		border-top: 2px solid colors.$black-a12;
 		font-weight: bold;
 	}
-	tbody tr:nth-child(2n) td {
-		background-color: colors.$black-a08;
-	}
+	// tbody tr:nth-child(2n) td {
+	// 	background-color: colors.$black-a08;
+	// }
 	table tr.active td {
 		background-color: colors.$success-a40;
 	}

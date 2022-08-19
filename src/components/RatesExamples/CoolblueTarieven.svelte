@@ -190,12 +190,19 @@
 </div>
 
 <style lang="scss">
-	
+	@use "sass:color";
+	h2{
+		@include fonts.h3;
+	}
 	div {
 		margin-top: 24px;
 		border: 1px solid colors.$black-a12;
 		border-radius: 16px;
 		padding: 24px;
-		background-color: colors.$black-a04;
+		background-color: lighten(colors.$soft-sand, 1%);
+		
+		@include media("<tablet"){
+			padding: 24px 16px;
+		}
 	}
 </style>
