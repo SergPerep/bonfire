@@ -1,7 +1,7 @@
 <script lang="ts">
 	/* ===== SET UP Params ===== */
 
-	export let progress = .7; // represents percent of a progress: from 0 to 1
+	export let progress = 0.7; // represents percent of a progress: from 0 to 1
 	const circleWidth = 20;
 	const barWidth = 3;
 	const numberOfSplashes = 9;
@@ -14,9 +14,9 @@
 	$: barLineLength = circleLength * progress;
 	$: barGapLength = circleLength - barLineLength;
 
-    /*===== GENERATE ARRAY OF SPLASHES =====*/
+	/*===== GENERATE ARRAY OF SPLASHES =====*/
 
-    /*----- Func that helps to make values a little bit noisy -----*/
+	/*----- Func that helps to make values a little bit noisy -----*/
 	const disperse = (max: number, disp = 0.2) => {
 		const gap = disp * max;
 		const min = max - gap;
@@ -43,7 +43,7 @@
 			<div class="splash__line" style={`animation-delay: ${splash.animDelay}s`} />
 		</div>
 	{/each}
-    <!--++ end +++-->
+	<!--++ end +++-->
 
 	<!-- SVG -->
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -186,7 +186,7 @@
 		}
 		100% {
 			stroke-dashoffset: 1px;
-			transfrom: translate(6px, 11px) scale(1);
+			transform: translate(6px, 11px) scale(1);
 		}
 	}
 
