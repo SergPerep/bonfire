@@ -1,4 +1,5 @@
 import sveltePreprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-auto';
 const sassColors = `@use './src/scss/sass-utils/colors.scss';`;
 const sassFonts = `@use './src/scss/sass-utils/fonts.scss';`;
 const sassVendors = `@use './src/scss/sass-utils/vendors.scss' as *;`;
@@ -12,5 +13,8 @@ export default {
 		scss:{
 			prependData: sassString
 		}
-	})
+	}),
+	kit: {
+		adapter: adapter()
+	}
 }
